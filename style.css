@@ -79,7 +79,7 @@ nav img{
 @media screen and (max-width: 768px) {
     .nav-list {
       display: none;
-      flex-direction: column;
+      flex-direction: row;
       width: 100%;
     }
 }
