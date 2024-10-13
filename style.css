@@ -75,7 +75,7 @@ nav img{
 }
 
 /* Responsive menu */
-@media (max-width: 768px) {
+@media (max-width: 100vh) {
     .nav-list li {
             position: absolute;
             right: 0px;
