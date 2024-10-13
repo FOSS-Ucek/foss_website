@@ -11,7 +11,10 @@ body {
     background-color: #f0f0f0;
  
 }
-
+@media  {
+    background-size: ;
+    
+}
 
 /* Header and nav styling */
 header {
@@ -78,10 +81,19 @@ nav img{
 /* Responsive menu */
 @media (max-width: 768px) {
     .nav-list li {
-        display: inline;
-       
-        margin: 10px;
-    }
+            position: absolute;
+            right: 0px;
+            height: calc(100vh - 72px);
+            top: 72px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in;
+        }
+    
 }
 
 
@@ -534,7 +546,7 @@ button.submit-btn{
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
-        
+
     }
 }
 
