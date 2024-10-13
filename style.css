@@ -12,13 +12,7 @@ body {
     overflow-x: hidden;
     width: 100%;
 }
-@media-webkit-full-screen{
-    .body{
-        overflow-x: hidden;
-        width: 100%;
-        
-    }
-}
+
 /* Header and nav styling */
 header {
     background-color: #333;
@@ -82,7 +76,7 @@ nav img{
 }
 
 /* Responsive menu */
-@media (max-width: 100vh) {
+@media (max-width: 1200px) {
     .nav-list li {
             position: absolute;
             right: 0px;
