@@ -12,7 +12,12 @@ body {
     overflow-x: hidden;
     width: 100%;
 }
-
+@media{
+    .body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
 /* Header and nav styling */
 header {
     background-color: #333;
