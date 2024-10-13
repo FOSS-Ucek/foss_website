@@ -76,23 +76,11 @@ nav img{
 }
 
 /* Responsive menu */
-@media (max-width: 1200px) {
-    .nav-list li {
-            position: absolute;
-            right: 0px;
-            height: 100%;
-            top: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: row;
-            align-items: inline;
-            width: 100%;
-            transform: translateX(100%);
-            transition: transform 0.5s ease-in;
-        }
-    
-}
-
+@media screen and (max-width: 768px) {
+    .navMenu {
+      display: none;
+      flex-direction: column;
+      width: 
 
 
 /* Hero section */
