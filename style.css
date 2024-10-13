@@ -79,13 +79,13 @@ nav img{
     .nav-list li {
             position: absolute;
             right: 0px;
-            height: calc(100vh - 72px);
-            top: 72px;
+            height: 100%;
+            top: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: row;
             align-items: inline;
-            width: 50%;
+            width: 100%;
             transform: translateX(100%);
             transition: transform 0.5s ease-in;
         }
@@ -96,7 +96,7 @@ nav img{
 
 /* Hero section */
 .hero {
-    height: 75vh;
+    height: 80vh;
     background: url('images/background.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
