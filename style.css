@@ -2,7 +2,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border;
+    box-sizing: border-box;
 }
 
 /* Body styling */
@@ -11,6 +11,7 @@ body {
     background-color: #f0f0f0;
  
 }
+
 
 /* Header and nav styling */
 header {
@@ -31,8 +32,17 @@ nav {
     margin: 0 auto;
     justify-content: space-between;
 }
+nav img{
+    margin-top: 0%;
+  height: 100px;
+  width: 13rem;
+  padding-top: 0%;
+  padding-bottom: 60px;
+}
 
 /* Navigation menu */
+  
+ 
 .nav-list {
     list-style: none;
     float: right;
@@ -161,7 +171,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #1e1e1e;
     color: #f0f0f0;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 /* Header and navigation */
@@ -354,12 +364,11 @@ body {
 
 /* Logo styling */
 .logo-container {
-
     display: inline-block;
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     
     color: #2a3c7a; /* Logo color */
@@ -371,8 +380,9 @@ body {
 }
 
 .logo-img {
-    width: 5rem; /* Adjust based on your image size */
-    height: 2.5%;
+    
+    width:10rem; /* Adjust based on your image size */
+    height: 5px;
     
 } 
 
@@ -402,7 +412,7 @@ body {
 /* Contact form*/
 /* General Reset */
 * {
-    margin: 0;
+    margin: auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -591,8 +601,8 @@ footer {
 }
 
 .social-icons img {
-    width: 15rem;
-    height: 5rem;
+    width: 13rem;
+    height: 4.5rem;
     border-radius: 10px;
 }
 
@@ -627,6 +637,29 @@ footer {
     .footer-info {
         padding-right: 0;
         margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    form {
+        max-width: 100%;
     }
 }
 
