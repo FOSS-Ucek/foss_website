@@ -35,7 +35,7 @@ nav {
 nav img{
     margin-top: 0%;
   height: 100px;
-  width: 13rem;
+  width: 12rem;
   padding-top: 0%;
   padding-bottom: 60px;
 }
@@ -78,9 +78,9 @@ nav img{
 /* Responsive menu */
 @media (max-width: 768px) {
     .nav-list li {
-        display: block;
+        display: inline;
        
-        margin: 0px 0;
+        margin: 10px;
     }
 }
 
@@ -144,7 +144,7 @@ nav img{
 }
 
 /* Responsive adjustments */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -291,14 +291,14 @@ header {
 
 }
 .img-parent{
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 13rem;
+    height: 13rem;
     overflow: hidden;
     border-radius: 500px;
 }
 .img-parent img{
     text-align: center;
-    width: 7.5rem;
+    width: 13rem;
     border-radius: 500px;
 }
 
@@ -534,6 +534,7 @@ button.submit-btn{
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        
     }
 }
 
@@ -554,7 +555,7 @@ footer {
 @media (max-width: 768px) {
     .cards, .team-grid {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 }
 
@@ -639,28 +640,3 @@ footer {
         margin-bottom: 10px;
     }
 }
-@media screen and (max-width: 768px) {
-    header {
-        text-align: center;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    form {
-        max-width: 100%;
-    }
-}
-
-
