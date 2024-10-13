@@ -77,12 +77,13 @@ nav img{
 
 /* Responsive menu */
 @media screen and (max-width: 768px) {
-    .nav-list{
+    .navMenu {
       display: none;
       flex-direction: column;
-      width: 
-
-
+      width: 100%;
+    }
+}
+ 
 /* Hero section */
 .hero {
     height: 80vh;
