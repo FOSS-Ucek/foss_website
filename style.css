@@ -77,7 +77,7 @@ nav img{
 
 /* Responsive menu */
 @media screen and (max-width: 768px) {
-    .navMenu {
+    .nav-list{
       display: none;
       flex-direction: column;
       width: 
