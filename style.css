@@ -9,7 +9,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
- 
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Header and nav styling */
