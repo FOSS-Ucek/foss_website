@@ -10,6 +10,10 @@
             padding: 0;
             font-family: Arial, sans-serif;
             height: 100%;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+
         }
         .container {
             background-image: url('/placeholder.svg?height=1080&width=1920');
@@ -23,12 +27,13 @@
         }
         nav {
             background-color: #630e63;
-            padding: 1rem;
+            padding: 10px 0;
+            width: 100%;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 1em;
             font-size: 1rem;
         }
         .content {
@@ -51,6 +56,105 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
         }
+        /* Footer */
+footer {
+    padding: 20px;
+    background-color: #525151;
+    text-align: center;
+    color: #f0f0f0;
+    margin-top: 20px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .cards, .team-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Footer styles */
+.footer {
+    background-color: #420b42;
+    color: #f0f0f0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+ 
+}
+
+.footer-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.footer-info h2 {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    
+   
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 13rem;
+    height: 4.5rem;
+    border-radius: 10px;
+}
+
+.social-i img {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.divider{
+    border-top: 1px  #f9f6fa;
+    width: 100%;
+    margin: 40px;
+}
+
+.logo-container{
+    text-align: center;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info {
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -69,5 +173,37 @@
             <p class="subtitle">Your journey to success starts here.</p>
         </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info" >
+                    <h3 >FOSS UCEK</h3>
+                    <p>University College of Engineering Kariyavattom</p>
+                    <p>Thiruvananthapuram, Kerala, India</p>
+                    <p>Email: fossil@gmail.com</p>
+                  
+
+                 <div class="logo-container">
+                    <div class="social-i" >
+                        <a   href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+
+                </div>
+                
+            </div>
+               
+            <hr>
+                <div class="divider"></div>
+            </hr>
+
+            <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
