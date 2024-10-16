@@ -3,353 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>FOSS UCEK - Free and Open Source Software</title>
+    <style>
+        :root {
+            --primary-color: #440a44;
+            --secondary-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #492222;
+            --background-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(99, 14, 99, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list li {
+            margin-left: 20px;
+        }
+
+        .nav-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+       
+        .hero {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 110vh; /* Increased from 100vh to 110vh */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem; /* Increased from 3.5rem to 4rem */
+            margin-bottom: 25px; /* Increased from 20px to 25px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem; /* Increased from 1.2rem to 1.3rem */
+            margin-bottom: 35px; /* Increased from 30px to 35px */
+        }
+
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .dark-theme {
+            background-color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+         p{
+            font-size: 1.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            font-size: 1.5rem;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+       
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
+            gap: 35px; /* Increased from 30px to 35px */
+        }
+
+        .card {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px; /* Increased from 10px to 12px */
+            padding: 25px; /* Increased from 20px to 25px */
+            text-align: center;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.6rem; /* Increased from 1.5rem to 1.6rem */
+            margin-bottom: 18px; /* Increased from 15px to 18px */
+            color: var(--primary-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Increased from 200px to 220px */
+            gap: 35px; /* Increased from 30px to 35px */
+        }
+
+        .team-member {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px; /* Increased from 10px to 12px */
+            padding: 25px; /* Increased from 20px to 25px */
+            text-align: center;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .img-parent {
+            width: 170px; /* Increased from 150px to 170px */
+            height: 170px; /* Increased from 150px to 170px */
+            margin: 0 auto 18px; /* Increased bottom margin from 15px to 18px */
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+        }
+
+        .img-parent img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-box {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .social-i {
+            margin-top: 20px;
+        }
+
+        .social-i a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-i img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-i img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-        <nav>
-            <ul class="nav-list" > 
-                
-                <div>
-                    <a href="index.html"  >
-                        <img src="images/foss.jpg" alt="Logo" >
-                    </a>
-                 
-                </div>
-        
-            <div >
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
+            </a>
+            <ul class="nav-list">
                 <li><a href="#index.html">Home</a></li>
                 <li><a href="#About_Us">About Us</a></li>
                 <li><a href="#Our_Objectives">Objectives</a></li>
                 <li><a href="#what_we_do">What We Do</a></li>
                 <li><a href="#Our_team">Team</a></li>
                 <li><a href="#Contact_us">Contact</a></li>
-            </div>
             </ul>
         </nav>
     </header>
-   
-          <header class="hero">
-            <div class="hero-content" >
 
-                <h1>Welcome to FOSS UCEK</h1>
-                <p> IN OPEN-SOURCE, WE FEEL STRONGLY THAT TO DO SOMETHING WELL.</p>
-                   <p>Your journey to success starts here.</p>
-                
-                
-                
-            </div>
-        </header>
-    
-    </body>
-        <!-- About Section -->
-        <section id="About_Us" class="section dark-theme">
-            <div class="container">
-              <h2>About Us </h2>
-                
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to FOSS UCEK</h1>
+            <p>IN OPEN-SOURCE, WE FEEL STRONGLY THAT TO DO SOMETHING WELL.</p>
+            <p>Your journey to success starts here.</p>
+            <a href="#About_Us" class="cta-btn">Learn More</a>
+        </div>
+    </section>
 
-                <p style="text-align: left;">We are a dedicated team committed to delivering high-quality solutions to our clients. Our mission is to innovate and lead in our industry.
-                FOSS means Free and Open Source Software. It doesn’t mean software is free of cost. It means that source code of the software is open for all and anyone is free to use, study and modify the code. This principle allows other people to contribute to the development and improvement of a software like a community.
-            </p>
-             <a href="about.html" class="cta-btn">Read More About FOSS Here</a>
-            
-           
-            </div>
-        </section>
-    
-        <!-- Objective Section -->
-        <section id="Our_Objectives" class="section">
-            <div class="container">
-                <h2>Our Objective</h2>
-                <p>Our objective is to continuously improve, innovate, and create value for our stakeholders by focusing on customer satisfaction and operational excellence.</p>
-              
-                <div class="team-grid" >
-             <div class="card"   >
-               
+    <section id="About_Us" class="section dark-theme">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a dedicated team committed to delivering high-quality solutions to our clients. Our mission is to innovate and lead in our industry. FOSS means Free and Open Source Software. It doesn't mean software is free of cost. It means that source code of the software is open for all and anyone is free to use, study and modify the code. This principle allows other people to contribute to the development and improvement of a software like a community.</p>
+            <a href="about.html" class="cta-btn">Read More About FOSS Here</a>
+        </div>
+    </section>
+
+    <section id="Our_Objectives" class="section">
+        <div class="container">
+            <h2>Our Objectives</h2>
+            <p>Our objective is to continuously improve, innovate, and create value for our stakeholders by focusing on customer satisfaction and operational excellence.</p>
+            <div class="card-grid">
+                <div class="card">
                     <h3>Maximize FOSS Usage</h3>
-            </div>
-            <div class="card">
-                <h3>Encourage FOSS Contributions</h3>
-                
-            </div>
-
-            <div class="card">
+                    <p>Promote and increase the adoption of Free and Open Source Software in various domains.</p>
+                </div>
+                <div class="card">
+                    <h3>Encourage FOSS Contributions</h3>
+                    <p>Motivate and support individuals to contribute to FOSS projects and communities.</p>
+                </div>
+                <div class="card">
                     <h3>Foster Collaboration & Networking</h3>
-             </div>
-
-             <div class="card">
-                <h3>Promote Open-Source Culture</h3>
-               
-            </div>
-                
+                    <p>Create opportunities for like-minded individuals to connect and collaborate on FOSS initiatives.</p>
+                </div>
+                <div class="card">
+                    <h3>Promote Open-Source Culture</h3>
+                    <p>Spread awareness about the benefits and principles of open-source software development.</p>
+                </div>
                 <div class="card">
                     <h3>Engage Through Workshops & Events</h3>
-                    
+                    <p>Organize and conduct educational events to enhance skills and knowledge in FOSS technologies.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            </div>
-        </section>
-    
-        <!-- What We Do Section -->
-        <section id="what_we_do" class="section dark-theme"  >
-               <div class="container" >    
-                <h2>What We Do</h2>
-                 <div class="cards">
-
-<div class="logo-container">
-                    <div class="social-icons">
-                               <div class="card">
-                        <a href="hackaton.html" >
-                            <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
-                        </a>
-                        <h3 style="text-align: center;">HACKATONS</h3>
-                                 </div>            
-                    </div>
-     </div>
-
-                    <div class="logo-container">
-                    <div class="social-icons">
-                    <div class="card">
-       
-                        <a href="workshops.html">
-                            <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
-                        </a>
-                        
-                        <h3 style="text-align: center;" >WORKSHOPS</h3>
-                    </div>    
-                    </div>
-                    </div>
-
-                    <div class="logo-container">
-                    <div class="social-icons">
-                          <div class="card">
-    
-                        <a href="events.html">
-                            <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
-                        </a>
-                        
-                        <h3 style="text-align: center;" >EVENTS</h3>
-             </div>   
-             </div>          
-            </div>
-
-                    <div class="logo-container">
-                    <div class="social-icons">
-                    <div class="card">
-    
-                        <a href="online session.html">
-                           
-                            <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
-                        </a>
-                        
-                    <h3 style="text-align: center;" >ONLINE SECTIONS</h3>
-                </div>         
-                </div>      
-                    </div>
-
-
-                   <div class="logo-container">
-                    <div class="social-icons">
-                     <div class="card">
- 
-                        <a href="club meets.html">
-                            <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
-                        </a>
-                        
-                     <h3 style="text-align: center;"  >CLUB MEETS</h3>
-                   </div>                  
-                    </div>
-                    </div>
-
+    <section id="what_we_do" class="section dark-theme">
+        <div class="container">
+            <h2>What We Do</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <a href="hackaton.html">
+                        <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
+                    </a>
+                    <h3>HACKATHONS</h3>
+                    <p>Organize coding competitions to solve real-world problems using FOSS.</p>
+                </div>
+                <div class="card">
+                    <a href="workshops.html">
+                        <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
+                    </a>
+                    <h3>WORKSHOPS</h3>
+                    <p>Conduct hands-on sessions on various FOSS technologies and tools.</p>
+                </div>
+                <div class="card">
+                    <a href="events.html">
+                        <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
+                    </a>
+                    <h3>EVENTS</h3>
+                    <p>Host seminars, conferences, and meetups focused on FOSS topics.</p>
+                </div>
+                <div class="card">
+                    <a href="online session.html">
+                        <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
+                    </a>
+                    <h3>ONLINE SESSIONS</h3>
+                    <p>Deliver webinars and virtual workshops on FOSS subjects.</p>
+                </div>
+                <div class="card">
+                    <a href="club meets.html">
+                        <img src="images/foss.jpg" alt="FOSS UCEK Logo" class="logo-img">
+                    </a>
+                    <h3>CLUB MEETS</h3>
+                    <p>Regular gatherings to discuss FOSS projects and share knowledge.</p>
                 </div>
             </div>
-        </section>
-    
-        <!-- Our Team Section -->
-        <section id="Our_team" class="section">
-            <div class="container">
-                <h2>Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="img-parent">
-                            <img src="images/ishaaa.jpg" alt="Team Member">
-                        </div>
-                        <h3>ISHA JEGATH S</h3>
-                        <p>Chairperson</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/joyisha.jpg" alt="Team Member">
-                        </div>
-                        <h3>JOYISHA </h3>
-                     <h3>  MARIA JOY</h3>
-                        <p>Vice-Chairperson</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/heba.jpg" alt="Team Member">
-                    </div>
-                        <h3>HEBA DITTY</h3>
-                        <p>General Secretary</p>
-                    </div>
+        </div>
+    </section>
 
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/teny.jpg" alt="Team Member">
+    <section id="Our_team" class="section">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/ishaaa.jpg" alt="Isha Jegath S">
                     </div>
-                        <h3>TENY CATHERINE </h3>
-                        <h3> TONY</h3>
-                        <p>Event-Coordinator</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/devika.jpg" alt="Team Member">
-                    </div>
-                        <h3>DEVIKA B </h3>
-                      <h3>   VINOD</h3>
-                        <p>Creative Lead</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/abhirami.jpg" alt="Team Member">
-                    </div>
-                        <h3>ABHIRAMY S B</h3>
-                        <p>Creative Member</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-                            
-                            <img src="images/arya.jpg" alt="Team Member">
-                        </div>
-                        <h3>ARYA S R</h3>
-                        <p>Creative Member</p>
-                    </div>
-
-                    <div class="team-member">
-                        <div class="img-parent">
-
-                        <img src="images/aswathy.jpg" alt="Team Member">
-                        </div>
-                        <h3>ASWATHI A</h3>
-                        <p>Technical Lead</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="img-parent">
-
-                        <img src="images/anugraha.jpg" alt="Team Member">
-                        </div>
-                        <h3>ANUGRAHA </h3>
-                        <h3>VARGHESE</h3>
-                        <p>Technical Member</p>
-                    </div>
-
+                    <h3>ISHA JEGATH S</h3>
+                    <p>Chairperson</p>
+                </div>
+                <div class="team-member">
                     
-                    <div class="team-member">
-                        <div class="img-parent">
-                        <img src="images/angitha.jpg" alt="Team Member">
+                    <div class="img-parent">
+                        <img src="images/joyisha.jpg" alt="Joyisha Maria Joy">
                     </div>
-                        <h3>ANGITHA A</h3>
-                        <p>Marketing Member</p>
+                    <h3>JOYISHA MARIA JOY</h3>
+                    <p>Vice-Chairperson</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/heba.jpg" alt="Heba Ditty">
                     </div>
-                        <div class="team-member">
-                        <div class="img-parent">
-
-                            <img src="images/supriya.jpg" alt="Team Member">
+                    <h3>HEBA DITTY</h3>
+                    <p>General Secretary</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/teny.jpg" alt="Teny Catherine Tony">
                     </div>
-
-                            <h3>SUPRIYA</h3>
-                            <h3> SURESH</h3>
-                            <p>Operation Member</p>
-                        </div>
-
-                    
+                    <h3>TENY CATHERINE TONY</h3>
+                    <p>Event-Coordinator</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/devika.jpg" alt="Devika B Vinod">
+                    </div>
+                    <h3>DEVIKA B VINOD</h3>
+                    <p>Creative Lead</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/abhirami.jpg" alt="Abhiramy S B">
+                    </div>
+                    <h3>ABHIRAMY S B</h3>
+                    <p>Creative Member</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/arya.jpg" alt="Arya S R">
+                    </div>
+                    <h3>ARYA S R</h3>
+                    <p>Creative Member</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/aswathy.jpg" alt="Aswathi A">
+                    </div>
+                    <h3>ASWATHI A</h3>
+                    <p>Technical Lead</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/anugraha.jpg" alt="Anugraha Varghese">
+                    </div>
+                    <h3>ANUGRAHA VARGHESE</h3>
+                    <p>Technical Member</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/angitha.jpg" alt="Angitha A">
+                    </div>
+                    <h3>ANGITHA A</h3>
+                    <p>Marketing Member</p>
+                </div>
+                <div class="team-member">
+                    <div class="img-parent">
+                        <img src="images/supriya.jpg" alt="Supriya Suresh">
+                    </div>
+                    <h3>SUPRIYA SURESH</h3>
+                    <p>Operation Member</p>
                 </div>
             </div>
-        </section>
-    
-        <!-- Contact Section -->
+        </div>
+    </section>
 
-       <section id="Contact_us" class="dark-theme">
-         
-        <section class="contact-section">
-           
-            <div class="container">
-                <h2>Contact US</h2>
-                <div class="contact-grid">
-                    <!--Address and Email Info-->
-                    <div class="contact-info">
+    <section id="Contact_us" class="section dark-theme">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
                     <div class="info-box">
-                    <i class="icon location-icon" >   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561 0-1.972 1.869-3.702 4-3.702zm0-2c-3.148 0-6 2.553-6 5.702 0 3.148 2.602 6.907 6 12.298 3.398-5.391 6-9.15 6-12.298 0-3.149-2.851-5.702-6-5.702zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm8 6h-3.135c-.385.641-.798 1.309-1.232 2h3.131l.5 1h-4.264l-.344.544-.289.456h.558l.858 2h-7.488l.858-2h.479l-.289-.456-.343-.544h-2.042l-1.011-1h2.42c-.435-.691-.848-1.359-1.232-2h-3.135l-4 8h24l-4-8zm-12.794 6h-3.97l1.764-3.528 1.516 1.528h1.549l-.859 2zm8.808-2h3.75l1 2h-3.892l-.858-2z"/></svg>   </i>
-                <h1>Our Address</h1>
-                <p>Golden Jubliee Building, Karivattom Trivandrum Rd, Karivattom, <br> Thiruvananthapuram, Kerala 695581</p>
-           </div>
-
-                
-                    <!-- Email and Contact Info -->
-                    <div class="info-box"> 
-                        <i class="icon email-icon">   <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 21h-24v-18h24v18zm-23-16.477v15.477h22v-15.477l-10.999 10-11.001-10zm21.089-.523h-20.176l10.088 9.171 10.088-9.171z"/></svg> </i>
-                        <h1>Email Us</h1>
+                        <i class="icon location-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                        </i>
+                        <h3>Our Address</h3>
+                        <p>Golden Jubliee Building, Karivattom Trivandrum Rd, Karivattom, <br> Thiruvananthapuram, Kerala 695581</p>
+                    </div>
+                    <div class="info-box">
+                        <i class="icon email-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                        </i>
+                        <h3>Email Us</h3>
                         <p>If you have any questions, feel free to email us:</p>
                         <p>Email: <a href="mailto:fossil@gmail.com">fossil@gmail.com</a></p>
-                        <p>Phone no: 564789</p> 
+                        <p>Phone no: 564789</p>
                     </div>
                 </div>
-  
-
-
-
-    <!-- Contact Form -->
-   <div class="contact-form">
-    <form action="#" method="POST">
-        <div class="form-row">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-        </div>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="submit-btn">Send message</button>
-        
-    </div>
-    </div>
-    </div>
-</section>
-</section>
-        
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-info" >
-                        <h3 >FOSS UCEK</h3>
-                        <p>University College of Engineering Kariyavattom</p>
-                        <p>Thiruvananthapuram, Kerala, India</p>
-                        <p>Email: fossil@gmail.com</p>
-                      
-
-                     <div class="logo-container">
-                        <div class="social-i" >
-                            <a   href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                                <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                            </a>
-                            <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                                <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                            </a>
-                        </div>
-                    </div>
-
-                    </div>
-                    
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
-                   
-                <hr>
-                    <div class="divider"></div>
-                </hr>
-
-                <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
             </div>
-        </footer>
-        
+        </div>
+    </section>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>FOSS UCEK</h3>
+                    <p>University College of Engineering Kariyavattom</p>
+                    <p>Thiruvananthapuram, Kerala, India</p>
+                    <p>Email: fossil@gmail.com</p>
+                    <div class="social-i">
+                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

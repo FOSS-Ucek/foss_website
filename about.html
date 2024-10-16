@@ -5,295 +5,242 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Read more about FOSS here</title>
     <style>
-        body, html {
+        :root {
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --primary-color: #630e63;
+            --secondary-color: #bb86fc;
+            --footer-color: #420b42;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
             font-family: Arial, sans-serif;
-            background-color: #030303;
-            color: #ffffff;
-            width: 100%;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
+
         .navbar {
-            background-color: #630e63;
-            padding: 15px 0;
-            text-align: center;
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .navbar a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            margin: 0 0.25rem; /* Added margin for spacing */
         }
-        .content {
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 1.5em;
+            padding: 2rem;
         }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
         h1 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
         }
+
         h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary-color);
         }
-        .subtitle {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            text-align: center;
+
+        h3 {
+            font-size: 1.75rem;
+            color: var(--secondary-color);
         }
+
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
         .section {
-            margin-bottom: 30px;
-            text-align:left ;
-            font-size: 1.5em;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        ul, ol {
             padding-left: 2rem;
         }
-        ul {
-            padding-left: 13rem;
+
+        .foss-resources {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
-     
 
-        .foss-content {
-          color: white;
-          font-family: Arial, sans-serif;
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
+        .foss-resources a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-      
-        .foss-content h2 {
-          font-size: 2em;
-          margin-bottom: 0px;
-          font-size: 2em;
+
+        .foss-resources a:hover {
+            color: var(--text-color);
         }
-      
-        .foss-content h3 {
-          font-size: 2em;
-          margin-top: 30px;
-          margin-bottom: 0px;
-          text-align: center;
+
+        .footer {
+            background-color: var(--footer-color);
+            color: var(--text-color);
+            padding: 2rem 0;
+            text-align: center;
         }
-      
-        .foss-content p, .foss-content li {
-          line-height: 1.6;
-          margin-bottom: 0px;
-          font-size: 1.5em;
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-      
-        .foss-content ol, .foss-content ul {
-          margin-left: 20px;
-          margin-bottom: 20px;
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
         }
-      
-        .foss-content a {
-          color: #bb86fc;
-          text-decoration: none;
-          text-align: center;
+
+        .social-icons a {
+            margin: 0 0.5rem;
         }
-      
-        .foss-content a:hover {
-          text-decoration: underline;
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
         }
-         /* Footer */
-footer {
-    padding: 20px;
-    background-color: #525151;
-    text-align: center;
-    color: #f0f0f0;
-    margin-top: 20px;
-}
 
-/* Responsive layout */
-@media (max-width: 768px) {
-    .cards, .team-grid {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
 
-/* Footer styles */
-.footer {
-    background-color: #420b42;
-    color: #f0f0f0;
-    padding: 20px 0;
-    text-align: center;
-}
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
- 
-}
-
-.footer-info {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.footer-info h2 {
-    margin-bottom: 10px;
-}
-
-.social-icons {
-    display: flex;
-    
-   
-}
-
-.social-icons a {
-    margin: 0 10px;
-}
-
-.social-icons img {
-    width: 13rem;
-    height: 4.5rem;
-    border-radius: 10px;
-}
-
-.social-i img {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-}
-
-.social-icons img:hover {
-    transform: scale(1.1);
-}
-
-.divider{
-    border-top: 1px  #f9f6fa;
-    width: 100%;
-    margin: 40px;
-}
-
-.logo-container{
-    text-align: center;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-info {
-        padding-right: 0;
-        margin-bottom: 10px;
-    }
-}
-
+            .navbar a {
+                display: inline-block;
+                padding: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="index.html#About_Us">About Us</a>
-        <a href="index.html#Our_Objectives">Objectives</a>
-        <a href="index.html#what_we_do">What We Do</a>
-        <a href="index.html#Our_team">Team</a>
-        <a href="index.html#Contact_us">Contact</a>
+        <div class="navbar-container">
+            <a href="index.html">Home</a>
+            <a href="index.html#About_Us">About Us</a>
+            <a href="index.html#Our_Objectives">Objectives</a>
+            <a href="index.html#what_we_do">What We Do</a>
+            <a href="index.html#Our_team">Team</a>
+            <a href="index.html#Contact_us">Contact</a>
+        </div>
     </nav>
 
-    <div class="content">
-        
+    <div class="container">
+        <section class="section">
             <h1>ABOUT FOSS</h1>
             <p>FOSS means Free and open-source software. FOSS is free to download, use, and distribute. They also allows users to modify and customize the software to meet their specific needs. It is often more secure than proprietary software, as the community can review and audit the code. FOSS is developed and maintained by a community of users and developers, ensuring that it meets the needs of its users. FOSS can often integrate with other software and systems, making it a great choice for organizations with existing infrastructure.</p>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>FOSS SUCCESS STORIES</h2>
             <ul>
                 <li>Linux: Used by millions of users worldwide, including top companies like Google and Amazon.</li>
                 <li>Apache: Powers over 50% of the world's websites.</li>
                 <li>Mozilla Firefox: A popular web browser used by hundreds of millions of users.</li>
             </ul>
-        </div>
-    </div>
-    <div class="foss-content">
-        <h2>WHAT IS FOSS?</h2>
-        <p>FOSS (Free and Open-Source Software) can be downloaded and used without any cost or licensing fees. The source code is made available for anyone to view, modify, and distribute. Some examples of FOSS include Linux, Android, LibreOffice, OpenOffice, Firefox, Chromium, GIMP, Inkscape, Python, and Java.</p>
-      
-        <h3>Free software:</h3>
-        <p>In FOSS, the term "free" refers to freedom, not price. This is often referred to as the "four freedoms" of free software. Users have the freedom to:</p>
-        <ol>
-          <li>Run the software for any purpose.</li>
-          <li>Study the source code and modify it.</li>
-          <li>Redistribute copies of the software.</li>
-          <li>Distribute modified versions of the software.</li>
-        </ol>
-      
-        <h3>Open-source software:</h3>
-        <p>In FOSS, "open-source" refers to the practice of making the source code of a software program available. Users can:</p>
-        <ol>
-          <li>View: Examine the code to understand how it works.</li>
-          <li>Modify: Change the code to fix bugs, add features, or improve performance.</li>
-          <li>Distribute: Share the modified code with others.</li>
-        </ol>
-      
-        <h3>OUR MISSION in FOSS UCEK</h3>
-        <p>Our mission is to create a vibrant community of FOSS enthusiasts, users, and contributors who can share knowledge, resources, and expertise to advance the use of FOSS in various fields.</p>
-      
-        <h3>OUR VISION in FOSS UCEK</h3>
-        <p>Our vision is to make FOSS accessible and beneficial to everyone, regardless of their background or technical expertise.</p>
-      
-        <h3>FOSS Resources</h3>
-        <ul>
-          <li>Wikipedia: <a href="https://r.search.yahoo.com/_ylt=Awr98x2mSw5nzMgBhpRXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1730199718/RO=10/RU=https%3a%2f%2fen.wikipedia.org%2fwiki%2fFree_and_open-source_software/RK=2/RS=NGHPgQZuZ_mvlJP6RJchsmfq0.s-">(link)</a></li>
-          <li>Tutorial: <a href="#">(link)</a></li>
-          <li>Communities:  <a   href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-        </a> </li>
-        </ul>
-      </div>
-      
-      
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info" >
-                    <h3 >FOSS UCEK</h3>
-                    <p>University College of Engineering Kariyavattom</p>
-                    <p>Thiruvananthapuram, Kerala, India</p>
-                    <p>Email: fossil@gmail.com</p>
-                  
+        </section>
 
-                 <div class="logo-container">
-                    <div class="social-i" >
-                        <a   href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                        </a>
-                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                        </a>
-                    </div>
-                </div>
+        <section class="section">
+            <h2>WHAT IS FOSS?</h2>
+            <p>FOSS (Free and Open-Source Software) can be downloaded and used without any cost or licensing fees. The source code is made available for anyone to view, modify, and distribute. Some examples of FOSS include Linux, Android, LibreOffice, OpenOffice, Firefox, Chromium, GIMP, Inkscape, Python, and Java.</p>
+        
+            <h3>Free software:</h3>
+            <p>In FOSS, the term "free" refers to freedom, not price. This is often referred to as the "four freedoms" of free software. Users have the freedom to:</p>
+            <ol>
+                <li>Run the software for any purpose.</li>
+                <li>Study the source code and modify it.</li>
+                <li>Redistribute copies of the software.</li>
+                <li>Distribute modified versions of the software.</li>
+            </ol>
+        
+            <h3>Open-source software:</h3>
+            <p>In FOSS, "open-source" refers to the practice of making the source code of a software program available. Users can:</p>
+            <ol>
+                <li>View: Examine the code to understand how it works.</li>
+                <li>Modify: Change the code to fix bugs, add features, or improve performance.</li>
+                <li>Distribute: Share the modified code with others.</li>
+            </ol>
+        </section>
 
-                </div>
-                
+        <section class="section">
+            <h3>OUR MISSION in FOSS UCEK</h3>
+            <p>Our mission is to create a vibrant community of FOSS enthusiasts, users, and contributors who can share knowledge, resources, and expertise to advance the use of FOSS in various fields.</p>
+        
+            <h3>OUR VISION in FOSS UCEK</h3>
+            <p>Our vision is to make FOSS accessible and beneficial to everyone, regardless of their background or technical expertise.</p>
+        </section>
+
+        <section class="section">
+            <h3>FOSS Resources</h3>
+            <div class="foss-resources">
+                <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">Wikipedia</a>
+                <a href="https://r.search.yahoo.com/_ylt=AwrjdGbcmA9nWkQBHlJXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1730285021/RO=10/RU=https%3a%2f%2fitsfoss.com%2f/RK=2/RS=zCmaQDI9kARW_F3Q3qBVUg.Np4E-" target="_blank">Tutorial</a>
+                <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank">Instagram</a>
             </div>
-               
-            <hr>
-                <div class="divider"></div>
-            </hr>
-
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>FOSS UCEK</h3>
+            <p>University College of Engineering Kariyavattom</p>
+            <p>Thiruvananthapuram, Kerala, India</p>
+            <p>Email: fossil@gmail.com</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
