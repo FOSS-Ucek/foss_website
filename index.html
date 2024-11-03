@@ -176,9 +176,53 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
             gap: 35px; /* Increased from 30px to 35px */
+            
         }
+        .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .card {
+.topcard {
+    background-color: rgba(99, 14, 99, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.centercard {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    max-width: 500px;
+    background-color: rgba(99, 14, 99, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomcard {
+    background-color: rgba(99, 14, 99, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+        .topcard,.centercard,.bottomcard {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px; /* Increased from 10px to 12px */
             padding: 25px; /* Increased from 20px to 25px */
@@ -188,18 +232,52 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .card:hover {
+        .topcard:hover,.centercard:hover,.bottomcard:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .card h3 {
+        .topcard h3,.centercard h3,.bottomcard h3 {
             font-size: 1.6rem; /* Increased from 1.5rem to 1.6rem */
             margin-bottom: 18px; /* Increased from 15px to 18px */
             color: #cc1bcc;
 
         }
+        .topcard p,.centercard p,.bottomcard p {
+            font-size: 1.3rem; /* Increased from 1.5rem to 1.6rem */
+            margin-bottom: 18px; /* Increased from 15px to 18px */
+            color: #eeebee;
+
+        }
         
+        
+        .card-grid-a {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
+            gap: 35px; /* Increased from 30px to 35px */
+        }
+
+        .card-a {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px; /* Increased from 10px to 12px */
+            padding: 25px; /* Increased from 20px to 25px */
+            text-align: center;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-a h3 {
+            font-size: 1.6rem; /* Increased from 1.5rem to 1.6rem */
+            margin-bottom: 18px; /* Increased from 15px to 18px */
+            color: #cc1bcc;
+
+        }
         
         .team-grid {
             display: grid;
@@ -371,23 +449,23 @@
             <h2>Our Objectives</h2>
             <p>Our objective is to continuously improve, innovate, and create value for our stakeholders by focusing on customer satisfaction and operational excellence.</p>
             <div class="card-grid">
-                <div class="card">
+                <div class="topcard">
                     <h3>Maximize FOSS Usage</h3>
                     <p>Promote and increase the adoption of Free and Open Source Software in various domains.</p>
                 </div>
-                <div class="card">
+                <div class="topcard">
                     <h3>Encourage FOSS Contributions</h3>
                     <p>Motivate and support individuals to contribute to FOSS projects and communities.</p>
                 </div>
-                <div class="card">
+                <div class="centercard">
                     <h3>Foster Collaboration & Networking</h3>
                     <p>Create opportunities for like-minded individuals to connect and collaborate on FOSS initiatives.</p>
                 </div>
-                <div class="card">
+                <div class="bottomcard">
                     <h3>Promote Open-Source Culture</h3>
                     <p>Spread awareness about the benefits and principles of open-source software development.</p>
                 </div>
-                <div class="card">
+                <div class="bottomcard">
                     <h3>Engage Through Workshops & Events</h3>
                     <p>Organize and conduct educational events to enhance skills and knowledge in FOSS technologies.</p>
                 </div>
@@ -399,36 +477,36 @@
     <section id="what_we_do" class="section dark-theme">
         <div class="container">
             <h2>What We Do</h2>
-            <div class="card-grid">
-                <div class="card">
+            <div class="card-grid-a">
+                <div class="card-a">
                     <a href="hackaton.html">
                         <img src="images/foss.jpg"  alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>HACKATHONS</h3>
                     <p>Organize coding competitions to solve real-world problems using FOSS.</p>
                 </div>
-                <div class="card">
+                <div class="card-a">
                     <a href="workshops.html">
                         <img src="images/foss.jpg"  alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>WORKSHOPS</h3>
                     <p>Conduct hands-on sessions on various FOSS technologies and tools.</p>
                 </div>
-                <div class="card">
+                <div class="card-a">
                     <a href="events.html">
                         <img src="images/foss.jpg"  alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>EVENTS</h3>
                     <p>Host seminars, conferences, and meetups focused on FOSS topics.</p>
                 </div>
-                <div class="card">
+                <div class="card-a">
                     <a href="online session.html">
                         <img src="images/foss.jpg"   alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>ONLINE SESSIONS</h3>
                     <p>Deliver webinars and virtual workshops on FOSS subjects.</p>
                 </div>
-                <div class="card">
+                <div class="card-a">
                     <a href="club meets.html">
                         <img src="images/foss.jpg"   alt="FOSS UCEK Logo" class="logo-img">
                     </a>
