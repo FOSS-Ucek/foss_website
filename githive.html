@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FOSS UCEK - Online Sessions</title>
+    <title>FOSS UCEK - GitHive Session Report</title>
     <style>
         :root {
             --primary-color: #440a44;
@@ -24,7 +24,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.9;
+            line-height: 1.3;
         }
 
         .container {
@@ -115,7 +115,6 @@
             font-size: 2rem;
             margin-bottom: 35px;
         }
-        
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -130,19 +129,11 @@
          p{
             font-size: 1.5rem;
         }
-
         .section {
             padding: 80px 0;
         }
 
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            margin-top: 2rem;
-        }
-
-        .session-card {
+        .report-card {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px;
             padding: 25px;
@@ -150,48 +141,47 @@
             font-size: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
 
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .session-card h3 {
-            font-size: 1.6rem;
+        .report-card h2 {
+            font-size: 2rem;
             margin-bottom: 18px;
             color: #cc1bcc;
         }
 
-        .session-card p {
+        .report-card p {
             font-size: 1.3rem;
             margin-bottom: 18px;
             color: #eeebee;
         }
 
-        .session-date {
-            font-size: 1.2rem;
-            color: #a19fa1;
-            margin-bottom: 1rem;
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
+        .event-photos {
+            
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .event-photos img {
+            width: 48%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
         }
 
+        .event-photos img:hover {
+            transform: scale(1.05);
+        }
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -219,6 +209,7 @@
             transform: scale(1.1);
         }
 
+      
         @media (max-width: 768px) {
             .nav-list {
                 display: none;
@@ -232,7 +223,8 @@
                 font-size: 1.1rem;
             }
 
-            .sessions-grid {
+            .event-details,
+            .event-photos {
                 grid-template-columns: 1fr;
             }
         }
@@ -242,7 +234,7 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -257,29 +249,43 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Online Sessions</h1>
-            <p>Learn and grow with FOSS UCEK</p>
+            <h1>GitHive: Introduction to GitHub</h1>
+            
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <h3>GitHive: Introduction to GitHub</h3>
-                    <div class="session-date">October 4th and 13th, 2024</div>
-                    <p>A two-part session introducing GitHub and its practical applications.</p>
-                    <a href="githive.html" class="cta-btn">Learn More</a>
+            <div class="report-card">
+                <div class="event-details">
+                    <div>
+                        <p><strong>Programme Name:</strong> GitHive: Introduction to GitHub</p>
+                        <p><strong>Date of the event:</strong> 4th October and 13th October 2024</p>
+                        <p><strong>Speaker:</strong> Adarsh Dev (3rd year IT student in UCEK)</p>
+                        <p><strong>Venue:</strong> Google Meet</p>
+                    </div>
+                    
                 </div>
-                <div class="session-card">
-                    <h3>Upcoming Session</h3>
-                    <div class="session-date">Date TBA</div>
-                    <p>Stay tuned for our next exciting online session!</p>
+
+                <div class="event-photos img">
+                    <img src="images\background.jpg" alt="Event photo 1">
+                    <img src="images\background.jpg" alt="Event photo 2">
                 </div>
+                <h2>Event Summary</h2>
+                <p>The FOSS Club of University College of Engineering, Karyavattom, conducted a two-part online session titled GitHive for freshers, focusing on introducing and exploring GitHub. The sessions were held on October 7 and October 13 at 8 PM on Google Meet. The speaker for both sessions was Adharsh Dev, third-year IT student from the college, who guided the participants through the topics with clarity and enthusiasm.</p>
+
+                <h2>First Session</h2>
+                <p>The first session began with a warm welcome extended to the speaker by the chairperson of FOSS UCEK, Isha Jagath. This session provided an introduction to GitHub, explaining its significance and applications. Adharsh elaborated on the role of GitHub in version control, collaboration, and project management, emphasizing its importance for developers and teams. He also highlighted practical uses such as hosting portfolios, collaborating on open-source projects, and managing code effectively. The session was highly interactive, with participants actively asking questions about GitHub's applications and receiving clear answers. The engaging nature of the session ensured that it wasn't merely a lecture but a lively exchange of ideas. Over 60 students attended, making it a successful and fun learning experience.</p>
+
+                <h2>Second Session</h2>
+                <p>The second session, held on October 18, 2024, adopted a more practical approach. Adharsh guided participants step-by-step on creating a GitHub account, initializing repositories, and sharing them. Students followed along, performing the steps simultaneously, which enhanced their understanding of GitHub's functionalities. The session covered key features like creating repositories and basic collaboration techniques. By the end of the session, students were equipped with hands-on experience, which they found immensely valuable. The session concluded before 10 PM, and participants shared positive feedback in the FOSS Club's WhatsApp community, expressing their appreciation for the practical insights and the clarity of the demonstrations.</p>
+
+                <h2>Impact and Conclusion</h2>
+                <p>GitHub, a platform with over 100 million developers, is a vital tool for software development and collaboration. With its applications ranging from managing code to hosting portfolios and websites, GitHub is indispensable in the tech world. This session served as a foundational experience for students, equipping them with skills that will be crucial in their academic and professional journeys.</p>
+                <p>The GitHive sessions were a resounding success, thanks to the engaging speaker and the enthusiasm of the participants. Such events highlight the FOSS Club's commitment to fostering a culture of learning and innovation, ensuring that students are well-prepared to navigate the rapidly evolving tech landscape.</p>
             </div>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -304,3 +310,5 @@
     </footer>
 </body>
 </html>
+
+   
