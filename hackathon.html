@@ -3,205 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HACKATHON</title>
+    <title>FOSS UCEK - Hackathon</title>
     <style>
-        body, html {
+        :root {
+            --primary-color: #440a44;
+            --secondary-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #492222;
+            --background-color: #1a1a1a;
+            max-width: 100%;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            height: 100%;
-            width: 100%;
-            background-color: #000;
-            color: #fff;
-
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.9;
+        }
+
         .container {
-            background-image: url('/placeholder.svg?height=1080&width=1920');
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(99, 14, 99, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list li {
+            margin-left: 20px;
+        }
+
+        .nav-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            background-image: url('https://getwallpapers.com/wallpaper/full/3/1/f/570743.jpg');
             background-size: cover;
             background-position: center;
-            height: 100%;
-            color:white;
-            text-align: center;
+            height: 60vh;
             display: flex;
-            flex-direction: column;
-        }
-        nav {
-            background-color: #630e63;
-            padding: 10px 0;
-            width: 100%;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1em;
-            font-size: 1rem;
-        }
-        .content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 0.5rem;
-            background-color: rgba(0, 0, 0, 0.904);
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .subtitle {
-            font-size: 1.2rem;
+            text-align: center;
+            position: relative;
             margin-bottom: 2rem;
         }
-        /* Footer */
-footer {
-    padding: 20px;
-    background-color: #525151;
-    text-align: center;
-    color: #f0f0f0;
-    margin-top: 20px;
-}
 
-/* Responsive layout */
-@media (max-width: 768px) {
-    .cards, .team-grid {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
 
-/* Footer styles */
-.footer {
-    background-color: #420b42;
-    color: #f0f0f0;
-    padding: 20px 0;
-    text-align: center;
-}
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
- 
-}
+        .hero p {
+            font-size: 2rem;
+            margin-bottom: 35px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+         .container{
+              font-size: 1.8rem;
+        }
+         p{
+            font-size: 1.5rem;
+        }
 
-.footer-info {
-    flex: 1;
-    padding-right: 20px;
-}
+        .section {
+            padding: 80px 0;
+        }
 
-.footer-info h2 {
-    margin-bottom: 10px;
-}
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 2rem;
+        }
 
-.social-icons {
-    display: flex;
-    
-   
-}
+        .session-card {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.social-icons a {
-    margin: 0 10px;
-}
+        .session-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.social-icons img {
-    width: 13rem;
-    height: 4.5rem;
-    border-radius: 10px;
-}
+        .session-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            color: #cc1bcc;
+        }
 
-.social-i img {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-}
+        .session-card p {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            color: #eeebee;
+        }
 
-.social-icons img:hover {
-    transform: scale(1.1);
-}
+        .session-date {
+            font-size: 1.2rem;
+            color: #a19fa1;
+            margin-bottom: 1rem;
+        }
 
-.divider{
-    border-top: 1px  #f9f6fa;
-    width: 100%;
-    margin: 40px;
-}
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
 
-.logo-container{
-    text-align: center;
-}
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.5rem;
+        }
 
-    .footer-info {
-        padding-right: 0;
-        margin-bottom: 10px;
-    }
-}
+        .social-i {
+            margin-top: 20px;
+        }
 
+        .social-i a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-i img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-i img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="index.html#About_Us">About Us</a>
-            <a href="index.html#Our_Objectives">Objectives</a>
-            <a href="index.html#what_we_do">What We Do</a>
-            <a href="index.html#Our_team">Team</a>
-            <a href="index.html#Contact_us">Contact</a>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+            </a>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#About_Us">About Us</a></li>
+                <li><a href="index.html#Our_Objectives">Objectives</a></li>
+                <li><a href="index.html#what_we_do">What We Do</a></li>
+                <li><a href="index.html#Our_team">Team</a></li>
+                <li><a href="index.html#Contact_us">Contact</a></li>
+            </ul>
         </nav>
-        <div class="content">
-            <h1>HACHATON</h1>
-            <p class="tagline">IN OPEN-SOURCE, WE FEEL STRONGLY THAT TO DO SOMETHING WELL.</p>
-            <p class="subtitle">Your journey to success starts here.</p>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hackathon</h1>
+            <p>Learn and grow with FOSS UCEK</p>
         </div>
-    </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="sessions-grid">
+                
+                <div class="session-card">
+                    <h3>Upcoming Session</h3>
+                    <div class="session-date">Date TBA</div>
+                    <p>Stay tuned for our next hackathon!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info" >
-                    <h3 >FOSS UCEK</h3>
+                <div class="footer-info">
+                    <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
                     <p>Email: fossil@gmail.com</p>
-                  
-
-                 <div class="logo-container">
-                    <div class="social-i" >
-                        <a   href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                        </a>
-                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                            <img src="/images/https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                        </a>
+                    <div class="social-i">
+                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                </a>
                     </div>
                 </div>
-
-                </div>
-                
             </div>
-               
             <hr>
-                <div class="divider"></div>
-            </hr>
-
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>

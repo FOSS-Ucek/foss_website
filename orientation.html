@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FOSS UCEK - Events</title>
+    <title>FOSS UCEK - Club Orientation Report</title>
     <style>
         :root {
             --primary-color: #440a44;
@@ -24,7 +24,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.9;
+            line-height: 1.3;
         }
 
         .container {
@@ -115,7 +115,6 @@
             font-size: 2rem;
             margin-bottom: 35px;
         }
-        
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -130,19 +129,11 @@
          p{
             font-size: 1.5rem;
         }
-
         .section {
             padding: 80px 0;
         }
 
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            margin-top: 2rem;
-        }
-
-        .session-card {
+        .report-card {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px;
             padding: 25px;
@@ -150,48 +141,47 @@
             font-size: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
 
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .session-card h3 {
-            font-size: 1.6rem;
+        .report-card h2 {
+            font-size: 2rem;
             margin-bottom: 18px;
             color: #cc1bcc;
         }
 
-        .session-card p {
+        .report-card p {
             font-size: 1.3rem;
             margin-bottom: 18px;
             color: #eeebee;
         }
 
-        .session-date {
-            font-size: 1.2rem;
-            color: #a19fa1;
-            margin-bottom: 1rem;
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
+        .event-photos {
+            
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .event-photos img {
+            width: 48%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
         }
 
+        .event-photos img:hover {
+            transform: scale(1.05);
+        }
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -219,6 +209,7 @@
             transform: scale(1.1);
         }
 
+      
         @media (max-width: 768px) {
             .nav-list {
                 display: none;
@@ -232,7 +223,8 @@
                 font-size: 1.1rem;
             }
 
-            .sessions-grid {
+            .event-details,
+            .event-photos {
                 grid-template-columns: 1fr;
             }
         }
@@ -242,7 +234,7 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
@@ -257,35 +249,49 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Events</h1>
-            <p>Learn and grow with FOSS UCEK</p>
+            <h1>FOSS Club Orientation</h1>
+            
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <h3>Orientation</h3>
-                    <div class="session-date">September 26th, 2024</div>
-                    <p>A session aimed to introduce new students to the principles of Free and Open Source Software(FOSS).</p>
-                    <a href="orientation.html" class="cta-btn">Learn More</a>
+            <div class="report-card">
+                <div class="event-details">
+                    <div>
+                        <p><strong>Programme Name:</strong> FOSS Club Orientation</p>
+                        <p><strong>Date of the event:</strong> 26th September 2024</p>
+                        <p><strong>Venue:</strong> UCEK EMS Hall</p>
+                        <p><strong>Time:</strong> 10:00 AM to 12:00 PM</p>
+                    </div>
+                    
                 </div>
-                <div class="session-card">
-                    <h3>Introduction to Open Source</h3>
-                    <div class="session-date">October 18th, 2024</div>
-                    <p>A session to introduce students to the fundamentals of Open Source Software(OSS) and its opportunities.</p>
-                    <a href="opensource.html" class="cta-btn">Learn More</a>
+
+                <div class="event-photos img">
+                    <img src="images\background.jpg" alt="Event photo 1">
+                    <img src="images\background.jpg" alt="Event photo 2">
                 </div>
-                <div class="session-card">
-                    <h3>Upcoming Session</h3>
-                    <div class="session-date">Date TBA</div>
-                    <p>Stay tuned for our next Events!</p>
-                </div>
+                <h2>Event Summary</h2>
+                <p>The FOSS Club of University College of Engineering, Karyavattom (UCEK), organized an engaging orientation session for freshers on 26th September 2024. The session aimed to introduce new students to the principles of Free and Open Source Software (FOSS) and foster excitement about the club's activities and initiatives.</p>
+
+                <h2>Event Highlights</h2>
+                <p>The event began with a brief introduction by Isha Jagath, the FOSS UCEK Chairperson, who presented the club's executive committee members and provided an overview of FOSS, highlighting the core "Four Freedoms" that define it. This was followed by an interactive session led by Joyisha Maria, the Vice Chairperson of FOSS UCEK.</p>
+
+                <p>The session included interactive activities such as:</p>
+                <ul>
+                    <li>"Truth and Lie about FOSS" game</li>
+                    <li>"Prompt Challenge" involving AI-generated images</li>
+                </ul>
+
+                <p>These engaging games helped clarify key concepts about FOSS in a fun, memorable way and introduced students to practical aspects of AI.</p>
+
+                <h2>Impact and Conclusion</h2>
+                <p>Students actively participated throughout the event, sharing their thoughts and fears about newly joining the course and clearing doubts about FOSS, its activities, and contributions. The orientation laid the foundation for an active and collaborative year ahead for the FOSS Club at UCEK.</p>
+
+                <p>The event concluded promptly at 12:00 PM, marking a successful start to the FOSS Club's engagement with the new batch of students.</p>
             </div>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -293,7 +299,7 @@
                     <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
-                    <p>Email: fossil@gmail.com</p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="46202935352f2a06212b272f2a6825292b">[email&#160;protected]</a></p>
                     <div class="social-i">
                         <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
@@ -308,5 +314,6 @@
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
-</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
+
