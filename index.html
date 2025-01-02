@@ -35,7 +35,7 @@
         }
 
         header {
-            background-color: rgba(99, 14, 99, 0.9);
+            background: linear-gradient(135deg, #440a44 0%, #440a44 100%);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -46,7 +46,7 @@
 
         nav {
             display: flex;
-            justify-content:space-between;
+            justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
         }
@@ -55,6 +55,7 @@
             height: 50px;
             border-radius: 25px;
         }
+
         .logo-text {
             font-size: 2rem;
             font-weight: bold;
@@ -83,6 +84,7 @@
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -124,14 +126,14 @@
                 margin: 0.5rem 0;
             }
         }
-       
+
         .hero {
             background-image: url('images/background.jpg');
             background-size: cover;
             background: width 100%;
             max-width: 100%;
             background-position: center;
-            height: 100vh; 
+            height: 100vh;
             max-height: 100%;/* Increased from 100vh to 110vh */
             display: flex;
             align-items: center;
@@ -182,9 +184,9 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
-         .container{
-              font-size: 1.8rem;
+
+        .container{
+             font-size: 1.8rem;
         }
          p{
             font-size: 1.5rem;
@@ -201,7 +203,7 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-       
+
         .cta-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -218,57 +220,48 @@
             background-color: var(--accent-color);
             transform: translateY(-3px);
         }
-       
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
-            gap: 35px; /* Increased from 30px to 35px */
-            
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto auto;
-    gap: 35px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.topcard {
-    background-color: rgba(99, 14, 99, 0.1);
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .topcard {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.centercard {
-    grid-column: 1 / span 2;
-    justify-self: center;
-    max-width: 500px;
-    background-color: rgba(99, 14, 99, 0.1);
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .centercard {
+            grid-column: 1 / span 2;
+            justify-self: center;
+            max-width: 500px;
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.bottomcard {
-    background-color: rgba(99, 14, 99, 0.1);
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
+        .bottomcard {
+            background-color: rgba(99, 14, 99, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
         .topcard,.centercard,.bottomcard {
             background-color: rgba(99, 14, 99, 0.1);
@@ -297,8 +290,8 @@
             color: #eeebee;
 
         }
-        
-        
+
+
         .card-grid-a {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
@@ -326,7 +319,7 @@
             color: #cc1bcc;
 
         }
-        
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Increased from 200px to 220px */
@@ -382,8 +375,7 @@
         h3 p{
             font-size: 1rem;
         }
-      
-       
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -463,6 +455,11 @@
             <a href="index.html" class="logo">
                 <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
             </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-list">
                 <li><a href="#index.html">Home</a></li>
                 <li><a href="#About_Us">About Us</a></li>
@@ -482,7 +479,7 @@
             <a href="#About_Us" class="cta-btn">Learn More</a>
         </div>
     </section>
-     
+
     <section id="About_Us" class="section dark-theme">
         <div class="container">
             <h2>About Us</h2>
@@ -492,7 +489,7 @@
     </section>
 
     <section id="Our_Objectives" class="section">
-        
+
         <div class="container">
             <h2>Our Objectives</h2>
             <p>Our objective is to continuously improve, innovate, and create value for our stakeholders by focusing on customer satisfaction and operational excellence.</p>
@@ -519,7 +516,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section id="what_we_do" class="section dark-theme">
@@ -577,7 +574,7 @@
                     <p>Chairperson</p>
                 </div>
                 <div class="team-member">
-                    
+
                     <div class="img-parent">
                         <img src="images/joyisha.jpg" >
                     </div>
@@ -652,10 +649,10 @@
     </section>
 
     <section id="Contact_us" class="section dark-theme">
-        
+
         <div class="container">
             <h2>Contact Us</h2>
-            
+
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-box">
@@ -671,11 +668,11 @@
                         </i>
                         <h3>Email Us</h3>
                         <p>If you have any questions, feel free to email us:</p>
-                        <p>Email: <a href="mailto:fossil@gmail.com">fossil@gmail.com</a></p>
-                        
+                        <p>Email: <a href="/cdn-cgi/l/email-protection#92f4fde1e1fbfed2f5fff3fbfebcf1fdff"><span class="__cf_email__" data-cfemail="9bfdf4e8e8f2f7dbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></p>
+
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
                     <form action="#" method="POST">
                         <input type="text" name="name" placeholder="Your Name" required>
@@ -686,7 +683,7 @@
                     </form>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -697,20 +694,30 @@
                     <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
-                    <p>Email: fossil@gmail.com</p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17717864647e7b57707a767e7b3974787a">[email&#160;protected]</a></p>
                     <div class="social-i">
                         <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                </a>
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                        </a>
                     </div>
                 </div>
             </div>
             <hr>
-            <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
+            <p>&copy; 2024 foss UCEK. All rights reserved.</p>
         </div>
     </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
+
