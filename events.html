@@ -52,6 +52,8 @@
 
         .logo img {
             height: 50px;
+            border-radius: 25px;
+
         }
 
         .nav-list {
@@ -75,7 +77,47 @@
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
 
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #9b4dca 0%, #6b2c94 100%);
+                padding: 1rem;
+            }
+
+            .nav-list.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-list li {
+                margin: 0.5rem 0;
+            }
+        }
         .hero {
             background-image: url('https://getwallpapers.com/wallpaper/full/3/1/f/570743.jpg');
             background-size: cover;
