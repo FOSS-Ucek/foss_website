@@ -53,7 +53,6 @@
         .logo img {
             height: 50px;
             border-radius: 25px;
-
         }
 
         .nav-list {
@@ -77,6 +76,7 @@
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -167,10 +167,11 @@
             padding-bottom: 15px;
         }
         
-         .container{
-              font-size: 1.8rem;
+        .container {
+            font-size: 1.8rem;
         }
-         p{
+
+        p {
             font-size: 1.5rem;
         }
 
@@ -263,10 +264,6 @@
         }
 
         @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -278,6 +275,31 @@
             .sessions-grid {
                 grid-template-columns: 1fr;
             }
+
+            .container {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+            .session-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .session-card p {
+                font-size: 1.1rem;
+            }
+
+            .session-date {
+                font-size: 1rem;
+            }
+
+            .cta-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
@@ -287,6 +309,11 @@
             <a href="index.html" class="logo">
                 <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
             </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#About_Us">About Us</a></li>
@@ -308,7 +335,6 @@
     <section class="section">
         <div class="container">
             <div class="sessions-grid">
-                
                 <div class="session-card">
                     <h3>Upcoming Meets</h3>
                     <div class="session-date">Date TBA</div>
@@ -325,14 +351,14 @@
                     <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
-                    <p>Email: <a href="mailto:fossil@gmail.com">fossil@gmail.com</a></p>
+                    <p>Email: <a href="mailto:fossucek@gmail.com">fossucek@gmail.com</a></p>
                     <div class="social-i">
-                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                </a>
+                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -340,5 +366,17 @@
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
