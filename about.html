@@ -36,45 +36,50 @@
 
         .navbar-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
-        .navbar a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
-            transition: background-color 0.3s ease;
-            margin: 0.25rem;
-        }
-
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
         .logo img {
             height: 50px;
             border-radius: 25px;
         }
 
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
+        .nav-list {
+            display: flex;
+            list-style-type: none;
         }
 
-        .mobile-menu-toggle span {
-            display: block;
+        .nav-list li {
+            margin-left: 1rem;
+        }
+
+        .nav-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
             width: 25px;
             height: 3px;
             background-color: var(--text-color);
             margin: 5px 0;
-            transition: 0.4s;
+            transition: all 0.3s ease;
         }
 
         .container {
@@ -127,7 +132,7 @@
 
         .foss-resources a {
             color: rgb(54, 95, 228);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: color 0.3s ease;
             margin: 0.5rem;
@@ -170,48 +175,56 @@
             transform: scale(1.1);
         }
 
-        @media (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: rgba(99, 14, 99, 0.95);
+                position: fixed;
+                right: -100%;
+                top: 5rem;
                 flex-direction: column;
-                padding: 20px;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
             }
+
             .nav-list.active {
-                display: flex;
+                right: 0;
             }
+
             .nav-list li {
-                margin: 10px 0;
+                margin: 2.5rem 0;
             }
-            .mobile-menu-toggle {
+
+            .hamburger {
                 display: block;
             }
-            .hero h1 {
-                font-size: 2.5rem;
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
             }
-            .hero p {
-                font-size: 1.2rem;
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
             }
-            .contact-grid {
-                grid-template-columns: 1fr;
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
             }
-            .section {
-                padding: 40px 0;
+
+            h1 {
+                font-size: 2.3rem;
             }
+
             h2 {
                 font-size: 2rem;
             }
-            .card-grid, .card-grid-a, .team-grid {
-                grid-template-columns: 1fr;
+
+            h3 {
+                font-size: 1.8rem;
             }
-            .container {
-                font-size: 1.5rem;
-            }
-            p {
+
+            p, li {
                 font-size: 1.2rem;
             }
         }
@@ -223,18 +236,18 @@
             <a href="index.html" class="logo">
                 <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-list">
-                <a href="index.html">Home</a>
-                <a href="index.html#About_Us">About Us</a>
-                <a href="index.html#Our_Objectives">Objectives</a>
-                <a href="index.html#what_we_do">What We Do</a>
-                <a href="index.html#Our_team">Team</a>
-                <a href="index.html#Contact_us">Contact</a>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#About_Us">About Us</a></li>
+                <li><a href="index.html#Our_Objectives">Objectives</a></li>
+                <li><a href="index.html#what_we_do">What We Do</a></li>
+                <li><a href="index.html#Our_team">Team</a></li>
+                <li><a href="index.html#Contact_us">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </div>
     </nav>
@@ -314,14 +327,24 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navList = document.querySelector('.nav-list');
+        const hamburger = document.querySelector(".hamburger");
+        const navList = document.querySelector(".nav-list");
 
-            mobileMenuToggle.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
-        });
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navList.classList.toggle("active");
+        }
+
+        const navLinks = document.querySelectorAll(".nav-list a");
+
+        navLinks.forEach(n => n.addEventListener("click", closeMenu));
+
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navList.classList.remove("active");
+        }
     </script>
 </body>
 </html>
