@@ -69,19 +69,46 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .hamburger {
+        .mobile-menu-toggle {
             display: none;
+            background: none;
+            border: none;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
-        .hamburger div {
+        .mobile-menu-toggle span {
+            display: block;
             width: 25px;
             height: 3px;
             background-color: var(--text-color);
             margin: 5px 0;
-            transition: all 0.3s ease;
+            transition: 0.4s;
         }
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
 
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(99, 14, 99, 0.95);
+                padding: 1rem;
+            }
+
+            .nav-list.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-list li {
+                margin: 0.5rem 0;
+            }
+        }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -175,28 +202,42 @@
             transform: scale(1.1);
         }
 
-        @media screen and (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: rgba(99, 14, 99, 0.95);
-                padding: 1rem;
+            .hero p {
+                font-size: 1.1rem;
             }
 
-            .nav-list.active {
-                display: flex;
-                flex-direction: column;
+            .sessions-grid {
+                grid-template-columns: 1fr;
             }
 
-            .nav-list li {
-                margin: 0.5rem 0;
+            .container {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+            .session-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .session-card p {
+                font-size: 1.1rem;
+            }
+
+            .session-date {
+                font-size: 1rem;
+            }
+
+            .cta-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
         }
     </style>
