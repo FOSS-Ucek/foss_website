@@ -40,6 +40,7 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         .navbar a {
@@ -48,12 +49,17 @@
             font-size: 1.5rem;
             padding: 0.5rem 1rem;
             transition: background-color 0.3s ease;
-            margin: 0 0.25rem; /* Added margin for spacing */
+            margin: 0.25rem;
         }
 
         .navbar a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+        .logo img {
+            height: 50px;
+            border-radius: 25px;
+        }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -71,31 +77,6 @@
             transition: 0.4s;
         }
 
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, #9b4dca 0%, #6b2c94 100%);
-                padding: 1rem;
-            }
-
-            .nav-list.active {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .nav-list li {
-                margin: 0.5rem 0;
-            }
-        }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -108,7 +89,7 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--secondary-color);
         }
 
@@ -146,9 +127,10 @@
 
         .foss-resources a {
             color: rgb(54, 95, 228);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-decoration: none;
             transition: color 0.3s ease;
+            margin: 0.5rem;
         }
 
         .foss-resources a:hover {
@@ -190,14 +172,44 @@
 
         @media (max-width: 768px) {
             .navbar-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                align-self: flex-end;
+            }
+
+            .nav-list {
+                display: none;
+                width: 100%;
+            }
+
+            .nav-list.active {
+                display: flex;
+                flex-direction: column;
             }
 
             .navbar a {
-                display: inline-block;
-                padding: 0.5rem;
+                width: 100%;
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            p, li {
+                font-size: 1rem;
             }
         }
     </style>
@@ -205,12 +217,22 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="index.html">Home</a>
-            <a href="index.html#About_Us">About Us</a>
-            <a href="index.html#Our_Objectives">Objectives</a>
-            <a href="index.html#what_we_do">What We Do</a>
-            <a href="index.html#Our_team">Team</a>
-            <a href="index.html#Contact_us">Contact</a>
+            <a href="index.html" class="logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-list">
+                <a href="index.html">Home</a>
+                <a href="index.html#About_Us">About Us</a>
+                <a href="index.html#Our_Objectives">Objectives</a>
+                <a href="index.html#what_we_do">What We Do</a>
+                <a href="index.html#Our_team">Team</a>
+                <a href="index.html#Contact_us">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -275,17 +297,28 @@
             <h3>FOSS UCEK</h3>
             <p>University College of Engineering Kariyavattom</p>
             <p>Thiruvananthapuram, Kerala, India</p>
-            <p>Email: <a href="mailto:fossil@gmail.com">fossil@gmail.com</a></p>
+            <p>Email: <a href="mailto:fossucek@gmail.com">fossucek@gmail.com</a></p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
                 </a>
-                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
                 </a>
             </div>
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
