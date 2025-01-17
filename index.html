@@ -11,31 +11,26 @@
             --text-color: #ffffff;
             --accent-color: #492222;
             --background-color: #1a1a1a;
-            max-width: 100%;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         header {
-            background: linear-gradient(135deg, #440a44 0%, #440a44 100%);
+            background-color: rgba(99, 14, 99, 0.9);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -43,35 +38,22 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
         }
-
         .logo img {
             height: 50px;
             border-radius: 25px;
         }
-
-        .logo-text {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
         .nav-list {
             display: flex;
             list-style: none;
         }
-
         .nav-list li {
             margin-left: 20px;
         }
-
         .nav-list a {
             color: var(--text-color);
             text-decoration: none;
@@ -80,19 +62,16 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
         }
-
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 10px;
         }
-
         .mobile-menu-toggle span {
             display: block;
             width: 25px;
@@ -101,40 +80,11 @@
             margin: 5px 0;
             transition: 0.4s;
         }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, #9b4dca 0%, #6b2c94 100%);
-                padding: 1rem;
-            }
-
-            .nav-list.active {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .nav-list li {
-                margin: 0.5rem 0;
-            }
-        }
-
         .hero {
             background-image: url('images/background.jpg');
             background-size: cover;
-            background: width 100%;
-            max-width: 100%;
             background-position: center;
             height: 100vh;
-            max-height: 100%;/* Increased from 100vh to 110vh */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -150,33 +100,26 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.6);
         }
-
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 900px;
         }
-
         .hero h1 {
-            font-size: 4rem; /* Increased from 3.5rem to 4rem */
-            margin-bottom: 25px; /* Increased from 20px to 25px */
+            font-size: 4rem;
+            margin-bottom: 25px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
         .hero p {
-            font-size: 2rem; /* Increased from 1.2rem to 1.3rem */
-            margin-bottom: 35px; /* Increased from 30px to 35px */
+            font-size: 2rem;
+            margin-bottom: 35px;
         }
-
-
         .section {
             padding: 80px 0;
         }
-
         .dark-theme {
             background-color: var(--secondary-color);
         }
-
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -184,14 +127,12 @@
             position: relative;
             padding-bottom: 15px;
         }
-
-        .container{
-             font-size: 1.8rem;
+        .container {
+            font-size: 1.8rem;
         }
-         p{
+        p {
             font-size: 1.5rem;
         }
-
         h2::after {
             content: '';
             position: absolute;
@@ -203,7 +144,6 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-
         .cta-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -215,22 +155,18 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-weight: bold;
         }
-
         .cta-btn:hover {
             background-color: var(--accent-color);
             transform: translateY(-3px);
         }
-
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto auto auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 35px;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .topcard {
+        .topcard, .centercard, .bottomcard {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px;
             padding: 25px;
@@ -239,143 +175,87 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .centercard {
-            grid-column: 1 / span 2;
-            justify-self: center;
-            max-width: 500px;
-            background-color: rgba(99, 14, 99, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .bottomcard {
-            background-color: rgba(99, 14, 99, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .topcard,.centercard,.bottomcard {
-            background-color: rgba(99, 14, 99, 0.1);
-            border-radius: 12px; /* Increased from 10px to 12px */
-            padding: 25px; /* Increased from 20px to 25px */
-            text-align: center;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .topcard:hover,.centercard:hover,.bottomcard:hover {
+        .topcard:hover, .centercard:hover, .bottomcard:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .topcard h3,.centercard h3,.bottomcard h3 {
-            font-size: 1.6rem; /* Increased from 1.5rem to 1.6rem */
-            margin-bottom: 18px; /* Increased from 15px to 18px */
+        .topcard h3, .centercard h3, .bottomcard h3 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
             color: #cc1bcc;
-
         }
-        .topcard p,.centercard p,.bottomcard p {
-            font-size: 1.3rem; /* Increased from 1.5rem to 1.6rem */
-            margin-bottom: 18px; /* Increased from 15px to 18px */
+        .topcard p, .centercard p, .bottomcard p {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
             color: #eeebee;
-
         }
-
-
         .card-grid-a {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px to 280px */
-            gap: 35px; /* Increased from 30px to 35px */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
         }
-
         .card-a {
             background-color: rgba(99, 14, 99, 0.1);
-            border-radius: 12px; /* Increased from 10px to 12px */
-            padding: 25px; /* Increased from 20px to 25px */
+            border-radius: 12px;
+            padding: 25px;
             text-align: center;
             font-size: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .card-a:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
         .card-a h3 {
-            font-size: 1.6rem; /* Increased from 1.5rem to 1.6rem */
-            margin-bottom: 18px; /* Increased from 15px to 18px */
+            font-size: 1.6rem;
+            margin-bottom: 18px;
             color: #cc1bcc;
-
         }
-
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Increased from 200px to 220px */
-            gap: 35px; /* Increased from 30px to 35px */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
         }
-
         .team-member {
             background-color: rgba(99, 14, 99, 0.1);
-            border-radius: 12px; /* Increased from 10px to 12px */
-            padding: 25px; /* Increased from 20px to 25px */
+            border-radius: 12px;
+            padding: 25px;
             text-align: center;
             font-size: 1rem;
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .img-parent {
-            width: 170px; /* Increased from 150px to 170px */
-            height: 170px; /* Increased from 150px to 170px */
-            margin: 0 auto 18px; /* Increased bottom margin from 15px to 18px */
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 18px;
             overflow: hidden;
             border-radius: 50%;
             border: 3px solid var(--primary-color);
         }
-
         .img-parent img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .logo-img {
             width: 50px;
             height: 50px;
             margin-bottom: 15px;
         }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            font-size: 0.3rem;
         }
-
         .info-box {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            font-size: 0.3rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        h3 p{
-            font-size: 1rem;
-        }
-
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -386,7 +266,6 @@
             color: var(--text-color);
             border-radius: 5px;
         }
-
         .submit-btn {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -397,12 +276,10 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-weight: bold;
         }
-
         .submit-btn:hover {
             background-color: var(--accent-color);
             transform: translateY(-3px);
         }
-
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -410,41 +287,64 @@
             padding: 40px 0;
             font-size: 0.5rem;
         }
-
         .social-i {
             margin-top: 20px;
         }
-
         .social-i a {
             margin: 0 10px;
             display: inline-block;
         }
-
         .social-i img {
             width: 30px;
             height: 30px;
             transition: transform 0.3s ease;
         }
-
         .social-i img:hover {
             transform: scale(1.1);
         }
-
         @media (max-width: 768px) {
             .nav-list {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(99, 14, 99, 0.95);
+                flex-direction: column;
+                padding: 20px;
             }
-
+            .nav-list.active {
+                display: flex;
+            }
+            .nav-list li {
+                margin: 10px 0;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .hero p {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
-
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .card-grid, .card-grid-a, .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -453,7 +353,7 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -470,7 +370,6 @@
             </ul>
         </nav>
     </header>
-
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome to FOSS UCEK</h1>
@@ -479,17 +378,15 @@
             <a href="#About_Us" class="cta-btn">Learn More</a>
         </div>
     </section>
-
+     
     <section id="About_Us" class="section dark-theme">
         <div class="container">
             <h2>About Us</h2>
-            <p1>We are a dedicated team committed to delivering high-quality solutions to our clients. Our mission is to innovate and lead in our industry. FOSS means Free and Open Source Software. It doesn't mean software is free of cost. It means that source code of the software is open for all and anyone is free to use, study and modify the code. This principle allows other people to contribute to the development and improvement of a software like a community.</p1>
+            <p>We are a dedicated team committed to delivering high-quality solutions to our clients. Our mission is to innovate and lead in our industry. FOSS means Free and Open Source Software. It doesn't mean software is free of cost. It means that source code of the software is open for all and anyone is free to use, study and modify the code. This principle allows other people to contribute to the development and improvement of a software like a community.</p>
             <a href="about.html" class="cta-btn">Read More About FOSS Here</a>
         </div>
     </section>
-
     <section id="Our_Objectives" class="section">
-
         <div class="container">
             <h2>Our Objectives</h2>
             <p>Our objective is to continuously improve, innovate, and create value for our stakeholders by focusing on customer satisfaction and operational excellence.</p>
@@ -516,44 +413,42 @@
                 </div>
             </div>
         </div>
-
     </section>
-
     <section id="what_we_do" class="section dark-theme">
         <div class="container">
             <h2>What We Do</h2>
             <div class="card-grid-a">
                 <div class="card-a">
                     <a href="hackathon.html">
-                        <img src="https://static.vecteezy.com/system/resources/previews/021/727/815/non_2x/hackathon-icon-vector.jpg"  alt="FOSS UCEK Logo" class="logo-img">
+                        <img src="https://static.vecteezy.com/system/resources/previews/021/727/815/non_2x/hackathon-icon-vector.jpg" alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>HACKATHONS</h3>
                     <p>Organize coding competitions to solve real-world problems using FOSS.</p>
                 </div>
                 <div class="card-a">
                     <a href="workshops.html">
-                        <img src="https://www.nicepng.com/png/detail/301-3018368_free-icons-png-workshops-icon.png"  alt="FOSS UCEK Logo" class="logo-img">
+                        <img src="https://www.nicepng.com/png/detail/301-3018368_free-icons-png-workshops-icon.png" alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>WORKSHOPS</h3>
                     <p>Conduct hands-on sessions on various FOSS technologies and tools.</p>
                 </div>
                 <div class="card-a">
                     <a href="events.html">
-                        <img src="https://tse3.mm.bing.net/th?id=OIP.h56oXuPBb7GPvUk78BwKqgHaHa&pid=Api&P=0&h=220"  alt="FOSS UCEK Logo" class="logo-img">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.h56oXuPBb7GPvUk78BwKqgHaHa&pid=Api&P=0&h=220" alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>EVENTS</h3>
                     <p>Host seminars, conferences, and meetups focused on FOSS topics.</p>
                 </div>
                 <div class="card-a">
-                    <a href="online session.html">
-                        <img src="https://cdn.vectorstock.com/i/1000v/84/50/hd-online-meeting-icon-simple-style-vector-38188450.jpg"   alt="FOSS UCEK Logo" class="logo-img">
+                    <a href="online-session.html">
+                        <img src="https://cdn.vectorstock.com/i/1000v/84/50/hd-online-meeting-icon-simple-style-vector-38188450.jpg" alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>ONLINE SESSIONS</h3>
                     <p>Deliver webinars and virtual workshops on FOSS subjects.</p>
                 </div>
                 <div class="card-a">
-                    <a href="club meets.html">
-                        <img src="https://tse1.mm.bing.net/th?id=OIP.Kj1ruDxUDgkQzNy9F59YmwHaHa&pid=Api&P=0&h=220"   alt="FOSS UCEK Logo" class="logo-img">
+                    <a href="club-meets.html">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.Kj1ruDxUDgkQzNy9F59YmwHaHa&pid=Api&P=0&h=220" alt="FOSS UCEK Logo" class="logo-img">
                     </a>
                     <h3>CLUB MEETS</h3>
                     <p>Regular gatherings to discuss FOSS projects and share knowledge.</p>
@@ -561,85 +456,83 @@
             </div>
         </div>
     </section>
-
     <section id="Our_team" class="section">
         <div class="container">
             <h2>Our Team</h2>
             <div class="team-grid">
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/ishaaa.jpg"  >
+                        <img src="images/ishaaa.jpg" alt="Isha Jegath S">
                     </div>
                     <h3>ISHA JEGATH S</h3>
                     <p>Chairperson</p>
                 </div>
                 <div class="team-member">
-
                     <div class="img-parent">
-                        <img src="images/joyisha.jpg" >
+                        <img src="images/joyisha.jpg" alt="Joyisha Maria Joy">
                     </div>
                     <h3>JOYISHA MARIA JOY</h3>
                     <p>Vice-Chairperson</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/heba.jpg"  >
+                        <img src="images/heba.jpg" alt="Heba Ditty">
                     </div>
                     <h3>HEBA DITTY</h3>
                     <p>General Secretary</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/teny.jpg"  >
+                        <img src="images/teny.jpg" alt="Teny Catherine Tony">
                     </div>
                     <h3>TENY CATHERINE TONY</h3>
                     <p>Event-Coordinator</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/devika.jpg"  >
+                        <img src="images/devika.jpg" alt="Devika B Vinod">
                     </div>
                     <h3>DEVIKA B VINOD</h3>
                     <p>Creative Lead</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/abhirami.jpg" >
+                        <img src="images/abhirami.jpg" alt="Abhiramy S B">
                     </div>
                     <h3>ABHIRAMY S B</h3>
                     <p>Creative Member</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/arya.jpg"  >
+                        <img src="images/arya.jpg" alt="Arya S R">
                     </div>
                     <h3>ARYA S R</h3>
                     <p>Creative Member</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/aswathy.jpg" >
+                        <img src="images/aswathy.jpg" alt="Aswathi A">
                     </div>
                     <h3>ASWATHI A</h3>
                     <p>Technical Lead</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/anugraha.jpg"  >
+                        <img src="images/anugraha.jpg" alt="Anugraha Varghese">
                     </div>
                     <h3>ANUGRAHA VARGHESE</h3>
                     <p>Technical Member</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/angitha.jpg" >
+                        <img src="images/angitha.jpg" alt="Angitha A">
                     </div>
                     <h3>ANGITHA A</h3>
                     <p>Content and Research Member</p>
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="images/supriya.jpg" >
+                        <img src="images/supriya.jpg" alt="Supriya Suresh">
                     </div>
                     <h3>SUPRIYA SURESH</h3>
                     <p>Content and Research Member</p>
@@ -647,12 +540,9 @@
             </div>
         </div>
     </section>
-
     <section id="Contact_us" class="section dark-theme">
-
         <div class="container">
             <h2>Contact Us</h2>
-
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-box">
@@ -668,11 +558,9 @@
                         </i>
                         <h3>Email Us</h3>
                         <p>If you have any questions, feel free to email us:</p>
-                        <p>Email: <a href="/cdn-cgi/l/email-protection#92f4fde1e1fbfed2f5fff3fbfebcf1fdff"><span class="__cf_email__" data-cfemail="9bfdf4e8e8f2f7dbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></p>
-
+                        <p>Email: <a href="mailto:fossucek@gmail.com">fossucek@gmail.com</a></p>
                     </div>
                 </div>
-
                 <div class="contact-form">
                     <form action="#" method="POST">
                         <input type="text" name="name" placeholder="Your Name" required>
@@ -683,10 +571,8 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -694,30 +580,31 @@
                     <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17717864647e7b57707a767e7b3974787a">[email&#160;protected]</a></p>
+                    <p>Email: <a href="mailto:fossucek@gmail.com">fossucek@gmail.com</a></p>
                     <div class="social-i">
-                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
                         </a>
-                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
                         </a>
                     </div>
                 </div>
             </div>
             <hr>
-            <p>&copy; 2024 foss UCEK. All rights reserved.</p>
+            <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navList = document.querySelector('.nav-list');
 
-    mobileMenuToggle.addEventListener('click', () => {
-        navList.classList.toggle('active');
-    });
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
-
