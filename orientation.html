@@ -53,7 +53,6 @@
         .logo img {
             height: 50px;
             border-radius: 25px;
-
         }
 
         .nav-list {
@@ -77,6 +76,7 @@
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -158,6 +158,7 @@
             font-size: 2rem;
             margin-bottom: 35px;
         }
+
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -166,12 +167,14 @@
             padding-bottom: 15px;
         }
         
-         .container{
-              font-size: 1.8rem;
+        .container {
+            font-size: 1.8rem;
         }
-         p{
+
+        p {
             font-size: 1.5rem;
         }
+
         .section {
             padding: 80px 0;
         }
@@ -207,7 +210,6 @@
         }
 
         .event-photos {
-            
             display: flex;
             justify-content: space-between;
             gap: 20px;
@@ -225,6 +227,7 @@
         .event-photos img:hover {
             transform: scale(1.05);
         }
+
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -252,12 +255,7 @@
             transform: scale(1.1);
         }
 
-      
         @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -270,6 +268,26 @@
             .event-photos {
                 grid-template-columns: 1fr;
             }
+
+            .event-photos img {
+                width: 100%;
+            }
+
+            .container {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+            .report-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .report-card p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -279,6 +297,11 @@
             <a href="index.html" class="logo">
                 <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#About_Us">About Us</a></li>
@@ -293,7 +316,6 @@
     <section class="hero">
         <div class="hero-content">
             <h1>FOSS Club Orientation</h1>
-            
         </div>
     </section>
 
@@ -307,12 +329,11 @@
                         <p><strong>Venue:</strong> UCEK EMS Hall</p>
                         <p><strong>Time:</strong> 10:00 AM to 12:00 PM</p>
                     </div>
-                    
                 </div>
 
                 <div class="event-photos img">
-                    <img src="images\background.jpg" alt="Event photo 1">
-                    <img src="images\background.jpg" alt="Event photo 2">
+                    <img src="images/background.jpg" alt="Event photo 1">
+                    <img src="images/background.jpg" alt="Event photo 2">
                 </div>
                 <h2>Event Summary</h2>
                 <p>The FOSS Club of University College of Engineering, Karyavattom (UCEK), organized an engaging orientation session for freshers on 26th September 2024. The session aimed to introduce new students to the principles of Free and Open Source Software (FOSS) and foster excitement about the club's activities and initiatives.</p>
@@ -335,6 +356,7 @@
             </div>
         </div>
     </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -342,14 +364,14 @@
                     <h3>FOSS UCEK</h3>
                     <p>University College of Engineering Kariyavattom</p>
                     <p>Thiruvananthapuram, Kerala, India</p>
-
-                    <p>Email: <a href="mailto:fossil@gmail.com">fossil@gmail.com</a></p>                    <div class="social-i">
-                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" aria-label="LinkedIn">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" aria-label="Instagram">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
-                </a>
+                    <p>Email: <a href="mailto:fossucek@gmail.com">fossucek@gmail.com</a></p>
+                    <div class="social-i">
+                        <a href="https://www.linkedin.com/company/foss-ucek/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/foss_ucek?igsh=MWUxeTFmMG10YXpiZg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -357,6 +379,18 @@
             <p>&copy; 2024 FOSS UCEK. All rights reserved.</p>
         </div>
     </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
 </html>
 
