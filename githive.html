@@ -120,16 +120,15 @@
         }
 
         .hero {
-            background-image: url('https://getwallpapers.com/wallpaper/full/3/1/f/570743.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+           position: relative;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             margin-bottom: 2rem;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -140,14 +139,36 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
         }
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 25px;
@@ -318,6 +339,10 @@
         <div class="hero-content">
             <h1>GitHive: Introduction to GitHub</h1>
         </div>
+        <div class="slideshow">
+            <img src="images1/git.jpg" alt="Event photo 1" class="active">
+            <img src="images1/git 2.jpg" alt="Event photo 2"class="active">
+        </div>
     </section>
 
     <section class="section">
@@ -332,10 +357,7 @@
                     </div>
                 </div>
 
-                <div class="event-photos img">
-                    <img src="images1/git.jpg" alt="Event photo 1">
-                    <img src="images1/git 2.jpg" alt="Event photo 2">
-                </div>
+                
                 <h2>Event Summary</h2>
                 <p>The FOSS Club of University College of Engineering, Karyavattom, conducted a two-part online session titled GitHive for freshers, focusing on introducing and exploring GitHub. The sessions were held on October 7 and October 13 at 8 PM on Google Meet. The speaker for both sessions was Adharsh Dev, third-year IT student from the college, who guided the participants through the topics with clarity and enthusiasm.</p>
 
@@ -384,6 +406,22 @@
                 navList.classList.toggle('active');
                 mobileMenuToggle.classList.toggle('active');
             });
+             // Slideshow functionality
+             const slides = document.querySelectorAll('.slideshow img');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+
+            setInterval(nextSlide, 5000);
         });
     </script>
 </body>
