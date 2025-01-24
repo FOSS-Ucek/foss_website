@@ -411,7 +411,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const navList = document.querySelector('.nav-list');
 
@@ -419,9 +419,8 @@
                 navList.classList.toggle('active');
                 mobileMenuToggle.classList.toggle('active');
             });
-
-            // Slideshow functionality
-            const slides = document.querySelectorAll('.slideshow img');
+             // Slideshow functionality
+             const slides = document.querySelectorAll('.slideshow img');
             let currentSlide = 0;
 
             function showSlide(index) {
@@ -435,6 +434,9 @@
                 showSlide(nextIndex);
             }
 
-            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
         });
+    </script>
+</body>
+</html>
     
