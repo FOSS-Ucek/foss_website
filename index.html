@@ -282,6 +282,23 @@
             background-color: var(--accent-color);
             transform: translateY(-3px);
         }
+          
+        #status-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -512,7 +529,7 @@
                 </div>
                 <div class="team-member">
                     <div class="img-parent">
-                        <img src="" alt="Afzal B R">
+                        <img src="images\afsal b r.jpg" alt="Afzal B R">
                     </div>
                     <h3>Afzal B R</h3>
                     <p>Creative Team Member</p>
@@ -649,14 +666,16 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="#" method="POST">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="text" name="subject" placeholder="Subject" required>
-                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <form id="contactForm">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
+                    <div id="status-message"></div>
                 </div>
+            
             </div>
         </div>
     </section>
@@ -711,7 +730,80 @@
             changeBackgroundImage();
 
             // Change background every 5 seconds
-            setInterval(changeBackgroundImage, 5000);
+            setInterval(changeBackgroundImage, 2000);
+        });
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Replace these with your actual Google Form entry IDs
+            // You'll need to inspect your Google Form to get these values
+            const formData = new FormData();
+            formData.append('Your name', name);        // Replace with actual entry ID for name
+            formData.append('Your email', email);       // Replace with actual entry ID for email
+            formData.append('Subject', subject);     // Replace with actual entry ID for subject
+            formData.append('Your message', message);     // Replace with actual entry ID for message
+            
+            // Google Form URL from your link
+            const googleFormUrl = 'https://forms.gle/8XKgcNFKb4tTXoS36';
+            
+            // Create a hidden iframe to submit the form
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Create a form inside the iframe and submit it
+            iframe.onload = function() {
+                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                const iframeForm = iframeDocument.createElement('form');
+                iframeForm.action = googleFormUrl;
+                iframeForm.method = 'POST';
+                
+                // Add form data to the iframe form
+                for (const pair of formData.entries()) {
+                    const input = iframeDocument.createElement('input');
+                    input.type = 'hidden';
+                    input.name = pair[0];
+                    input.value = pair[1];
+                    iframeForm.appendChild(input);
+                }
+                
+                iframeDocument.body.appendChild(iframeForm);
+                iframeForm.submit();
+                
+                // Show success message
+                const statusMessage = document.getElementById('status-message');
+                statusMessage.textContent = 'Your message has been sent successfully!';
+                statusMessage.className = 'success';
+                statusMessage.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Remove iframe after submission
+                setTimeout(function() {
+                    document.body.removeChild(iframe);
+                }, 1000);
+            };
+            
+            iframe.onerror = function() {
+                // Show error message
+                const statusMessage = document.getElementById('status-message');
+                statusMessage.textContent = 'There was an error sending your message. Please try again.';
+                statusMessage.className = 'error';
+                statusMessage.style.display = 'block';
+                
+                // Remove iframe
+                document.body.removeChild(iframe);
+            };
+            
+            // Set the iframe source to about:blank to trigger the load event
+            iframe.src = 'about:blank';
         });
     </script>
 </body>
