@@ -667,15 +667,14 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <input type="text" id="name" name="entry.249457061" placeholder="Your Name" required>
+                        <input type="email" id="email" name="entry.783739628" placeholder="Your Email" required>
+                        <input type="text" id="subject" name="entry.1009088996" placeholder="Subject" required>
+                        <textarea id="message" name="entry.1519630393" rows="5" placeholder="Your Message" required></textarea>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
-                    <div id="status-message"></div>
-                </div>
-            
+                    <div id="status-message" style="margin-top: 10px; font-weight: bold;"></div>
+                </div>       
             </div>
         </div>
     </section>
@@ -732,79 +731,29 @@
             // Change background every 5 seconds
             setInterval(changeBackgroundImage, 2000);
         });
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Replace these with your actual Google Form entry IDs
-            // You'll need to inspect your Google Form to get these values
-            const formData = new FormData();
-            formData.append('Your name', name);        // Replace with actual entry ID for name
-            formData.append('Your email', email);       // Replace with actual entry ID for email
-            formData.append('Subject', subject);     // Replace with actual entry ID for subject
-            formData.append('Your message', message);     // Replace with actual entry ID for message
-            
-            // Google Form URL from your link
-            const googleFormUrl = 'https://forms.gle/8XKgcNFKb4tTXoS36';
-            
-            // Create a hidden iframe to submit the form
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            
-            // Create a form inside the iframe and submit it
-            iframe.onload = function() {
-                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                const iframeForm = iframeDocument.createElement('form');
-                iframeForm.action = googleFormUrl;
-                iframeForm.method = 'POST';
-                
-                // Add form data to the iframe form
-                for (const pair of formData.entries()) {
-                    const input = iframeDocument.createElement('input');
-                    input.type = 'hidden';
-                    input.name = pair[0];
-                    input.value = pair[1];
-                    iframeForm.appendChild(input);
-                }
-                
-                iframeDocument.body.appendChild(iframeForm);
-                iframeForm.submit();
-                
-                // Show success message
-                const statusMessage = document.getElementById('status-message');
-                statusMessage.textContent = 'Your message has been sent successfully!';
-                statusMessage.className = 'success';
-                statusMessage.style.display = 'block';
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-                // Remove iframe after submission
-                setTimeout(function() {
-                    document.body.removeChild(iframe);
-                }, 1000);
-            };
-            
-            iframe.onerror = function() {
-                // Show error message
-                const statusMessage = document.getElementById('status-message');
-                statusMessage.textContent = 'There was an error sending your message. Please try again.';
-                statusMessage.className = 'error';
-                statusMessage.style.display = 'block';
-                
-                // Remove iframe
-                document.body.removeChild(iframe);
-            };
-            
-            // Set the iframe source to about:blank to trigger the load event
-            iframe.src = 'about:blank';
+        
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let formData = new FormData();
+        formData.append("entry.249457061", document.getElementById("name").value);
+        formData.append("entry.783739628", document.getElementById("email").value);
+        formData.append("entry.1009088996", document.getElementById("subject").value);
+        formData.append("entry.1519630393", document.getElementById("message").value);
+
+        let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSc5CKf54HxIoL-WejgYvLHoKQ2cGllv-Qu8UZEjLmBk3nhrnw/formResponse";
+
+        fetch(googleFormURL, {
+            method: "POST",
+            body: formData,
+            mode: "no-cors" // Prevents CORS errors
+        }).then(() => {
+            document.getElementById("status-message").innerHTML = "<p style='color: green;'>Form submitted successfully!</p>";
+            document.getElementById("contactForm").reset(); // Clear the form after submission
+        }).catch(() => {
+            document.getElementById("status-message").innerHTML = "<p style='color: red;'>Error submitting form. Please try again.</p>";
         });
+    });
     </script>
 </body>
 </html>
