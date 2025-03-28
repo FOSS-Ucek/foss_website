@@ -381,24 +381,16 @@
     </footer>
 
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navList = document.querySelector(".nav-list");
+       
+       document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
 
-        hamburger.addEventListener("click", mobileMenu);
-
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navList.classList.toggle("active");
-        }
-
-        const navLinks = document.querySelectorAll(".nav-list a");
-
-        navLinks.forEach(n => n.addEventListener("click", closeMenu));
-
-        function closeMenu() {
-            hamburger.classList.remove("active");
-            navList.classList.remove("active");
-        }
+            mobileMenuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+       
     </script>
 </body>
 </html>
