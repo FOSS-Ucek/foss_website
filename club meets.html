@@ -369,13 +369,12 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', (event) => {
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const navList = document.querySelector('.nav-list');
 
-            mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.addEventListener('click', () => {
                 navList.classList.toggle('active');
-                mobileMenuToggle.classList.toggle('active');
             });
     </script>
 </body>
