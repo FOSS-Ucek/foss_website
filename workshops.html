@@ -76,46 +76,56 @@
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-
-        .mobile-menu-toggle {
+        .hamburger {
             display: none;
-            background: none;
-            border: none;
             cursor: pointer;
-            padding: 0.5rem;
         }
 
-        .mobile-menu-toggle span {
+        .bar {
             display: block;
             width: 25px;
             height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
             background-color: var(--text-color);
-            margin: 5px 0;
-            transition: 0.4s;
         }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
+        
+        
+        } @media (max-width: 768px) {
+            .hamburger {
                 display: block;
             }
 
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
             .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: rgba(99, 14, 99, 0.95);
-                padding: 1rem;
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
             }
 
             .nav-list.active {
-                display: flex;
-                flex-direction: column;
+                left: 0;
             }
 
             .nav-list li {
-                margin: 0.5rem 0;
+                margin: 16px 0;
             }
         }
 
@@ -304,8 +314,8 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
+    <nav class="navbar">
+        <div class="navbar-container">
             <a href="index.html" class="logo">
                 <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
@@ -368,13 +378,24 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navList = document.querySelector('.nav-list');
+        const hamburger = document.querySelector(".hamburger");
+        const navList = document.querySelector(".nav-list");
 
-            mobileMenuToggle.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navList.classList.toggle("active");
+        }
+
+        const navLinks = document.querySelectorAll(".nav-list a");
+
+        navLinks.forEach(n => n.addEventListener("click", closeMenu));
+
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navList.classList.remove("active");
+        }
     </script>
 </body>
 </html>

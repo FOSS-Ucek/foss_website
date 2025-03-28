@@ -388,14 +388,24 @@
     </footer>
 
     <script>
-      
-      document.addEventListener('DOMContentLoaded', (event) => {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navList = document.querySelector('.nav-list');
+      const hamburger = document.querySelector(".hamburger");
+        const navList = document.querySelector(".nav-list");
 
-            mobileMenuToggle.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navList.classList.toggle("active");
+        }
+
+        const navLinks = document.querySelectorAll(".nav-list a");
+
+        navLinks.forEach(n => n.addEventListener("click", closeMenu));
+
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navList.classList.remove("active");
+        }
     </script>
 </body>
 </html>
