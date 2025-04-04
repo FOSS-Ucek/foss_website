@@ -94,6 +94,10 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-list {
                 display: none;
                 position: absolute;
@@ -109,9 +113,6 @@
             }
             .nav-list li {
                 margin: 10px 0;
-            }
-            .mobile-menu-toggle {
-                display: block;
             }
             .hero{
                 height: 100vh;
@@ -364,7 +365,14 @@
                 navList.classList.toggle('active');
                 mobileMenuToggle.classList.toggle('active');
             });
+
+            const navLinks = document.querySelectorAll(".nav-list a");
+
+            navLinks.forEach(n => n.addEventListener("click", function() {
+                navList.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }));
+        });
     </script>
 </body>
 </html>
-
