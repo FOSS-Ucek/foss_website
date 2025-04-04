@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FOSS UCEK - Online Sessions</title>
+    <title>FOSS UCEK - Intro to LinkedIn</title>
     <style>
         :root {
             --primary-color: #440a44;
@@ -24,7 +24,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.9;
+            line-height: 1.3;
         }
 
         .container {
@@ -105,7 +105,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: rgba(92, 8, 92, 0.95);
+                background-color: rgba(99, 14, 99, 0.95);
                 padding: 1rem;
             }
 
@@ -120,16 +120,14 @@
         }
 
         .hero {
-            background-image: url('https://getwallpapers.com/wallpaper/full/3/1/f/570743.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             margin-bottom: 2rem;
+            overflow: hidden;
         }
 
         .hero::before {
@@ -140,11 +138,12 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
         }
 
@@ -158,7 +157,30 @@
             font-size: 2rem;
             margin-bottom: 35px;
         }
-        
+
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -179,61 +201,53 @@
             padding: 80px 0;
         }
 
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            margin-top: 2rem;
-        }
-
-        .session-card {
+        .report-card {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px;
             padding: 25px;
             text-align: left;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
 
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .session-card h3 {
-            font-size: 1.6rem;
+        .report-card h2 {
+            font-size: 2rem;
             margin-bottom: 18px;
             color: #cc1bcc;
         }
 
-        .session-card p {
-            font-size: 1.3rem;
+        .report-card p {
+            font-size: 1.1rem;
             margin-bottom: 18px;
             color: #eeebee;
         }
 
-        .session-date { 
-            font-size: 1.2rem;
-            color: #a19fa1;
-            margin-bottom: 1rem;
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
+        .event-photos {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .event-photos img {
+            width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-photos img:hover {
+            transform: scale(1.05);
         }
 
         .footer {
@@ -272,8 +286,13 @@
                 font-size: 1.1rem;
             }
 
-            .sessions-grid {
+            .event-details,
+            .event-photos {
                 grid-template-columns: 1fr;
+            }
+
+            .event-photos img {
+                width: 100%;
             }
 
             .container {
@@ -284,21 +303,12 @@
                 font-size: 1.3rem;
             }
 
-            .session-card h3 {
-                font-size: 1.4rem;
+            .report-card h2 {
+                font-size: 1.8rem;
             }
 
-            .session-card p {
+            .report-card p {
                 font-size: 1.1rem;
-            }
-
-            .session-date {
-                font-size: 1rem;
-            }
-
-            .cta-btn {
-                font-size: 1rem;
-                padding: 10px 20px;
             }
         }
     </style>
@@ -307,7 +317,7 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+                <img src="images/foss.jpg" alt="FOSS UCEK Logo">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -327,31 +337,36 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Online Sessions</h1>
-            <p>Learn and grow with FOSS UCEK</p>
+            <h1>Intro to LinkedIn</h1>
+        </div>
+        <div class="slideshow">
+            <img src="images1/ori .jpg" alt="Event photo 1" class="active">
+            <img src="images1/ori 2.jpg" alt="Event photo 2">
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <h3>GitHive: Introduction to GitHub</h3>
-                    <div class="session-date">October 4th and 13th, 2024</div>
-                    <p>A two-part session introducing GitHub and its practical applications.</p>
-                    <a href="githive.html" class="cta-btn">Learn More</a>
+            <div class="report-card">
+                <div class="event-details">
+                    <div>
+                        <p><strong>Programme Name:</strong> Intro to LinkedIn</p>
+                        <p><strong>Date of the event:</strong> October 7th</p>
+                        <p><strong>Venue:</strong> Online (Google Meet)</p>
+                        <p><strong>Time:</strong> 8:00 PM</p>
+                    </div>
                 </div>
-                <div class="session-card">
-                    <h3>Intro To LinkedIn</h3>
-                    <div class="session-date">October 7th,2024</div>
-                    <p>Program introducing newcomers to the professional networking platform LinkedIn.</p>
-                    <a href="introtolinkedin.html" class="cta-btn">Learn More</a>
-                </div>
-                <div class="session-card">
-                    <h3>Upcoming Session</h3>
-                    <div class="session-date">Date TBA</div>
-                    <p>Stay tuned for our next exciting online session!</p>
-                </div>
+
+                <h2>Event Summary</h2>
+                <p>On October 7th at 8 PM, FOSS-UCEK in collaboration with MULEARN-UCEK organized a special online program, introducing newcomers to the professional networking platform LinkedIn. The program was hosted via Google Meet and aimed to guide beginners through the essentials of LinkedIn, covering everything from creating an optimized profile to understanding how to use the platform effectively for career development.</p>
+
+                <h2>Event Highlights</h2>
+                <p>The program was led by Isha Jagat and Amarnath Sujith, who provided valuable insights and practical tips on getting the most out of LinkedIn's features. The session was designed specifically for LinkedIn newcomers and offered clear instructions on how to navigate the platform, connect with professionals, and explore job opportunities. Participants learned how to build a strong LinkedIn profile, make meaningful connections, and utilize the platform's features to further their professional goals.</p>
+
+                <h2>Impact and Conclusion</h2>
+                <p>The collaboration between FOSS and MULEARN-UCEK ensured the program was informative and engaging, providing attendees with the skills and knowledge needed to utilize LinkedIn effectively. By the end of the session, participants walked away with a comprehensive understanding of LinkedIn's potential and were equipped with the confidence to use the platform to expand their networks and achieve their professional objectives.</p>
+
+                <p>The program was a resounding success, with participants gaining a deeper understanding of the benefits and features of LinkedIn. The event demonstrated the value of collaboration between FOSS-UCEK and MULEARN-UCEK, and highlighted the importance of providing students with the skills and knowledge needed to succeed in their careers. Overall, the program was a valuable resource for newcomers to LinkedIn, and provided a solid foundation for participants to build on as they continue to develop their professional online presence.</p>
             </div>
         </div>
     </section>
@@ -380,24 +395,32 @@
     </footer>
 
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navList = document.querySelector(".nav-list");
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
 
-        hamburger.addEventListener("click", mobileMenu);
+            mobileMenuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
 
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navList.classList.toggle("active");
-        }
+            // Slideshow functionality
+            const slides = document.querySelectorAll('.slideshow img');
+            let currentSlide = 0;
 
-        const navLinks = document.querySelectorAll(".nav-list a");
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
 
-        navLinks.forEach(n => n.addEventListener("click", closeMenu));
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
 
-        function closeMenu() {
-            hamburger.classList.remove("active");
-            navList.classList.remove("active");
-        }
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        });
     </script>
 </body>
 </html>

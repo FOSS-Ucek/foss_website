@@ -352,17 +352,7 @@
     </section>
 
 
-    <section class="section">
-        <div class="container">
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <h3>Upcoming Session</h3>
-                    <div class="session-date">Date TBA</div>
-                    <p>Stay tuned for our next hackathon!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <footer class="footer">
         <div class="container">
@@ -388,24 +378,22 @@
     </footer>
 
     <script>
-      const hamburger = document.querySelector(".hamburger");
-        const navList = document.querySelector(".nav-list");
+       document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navList = document.querySelector('.nav-list');
 
-        hamburger.addEventListener("click", mobileMenu);
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
 
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navList.classList.toggle("active");
-        }
+            const navLinks = document.querySelectorAll(".nav-list a");
 
-        const navLinks = document.querySelectorAll(".nav-list a");
+            navLinks.forEach(n => n.addEventListener("click", function() {
+                mobileMenuToggle.classList.remove('active');
+                navList.classList.remove('active');
+            }));
 
-        navLinks.forEach(n => n.addEventListener("click", closeMenu));
-
-        function closeMenu() {
-            hamburger.classList.remove("active");
-            navList.classList.remove("active");
-        }
     </script>
 </body>
 </html>
