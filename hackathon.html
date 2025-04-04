@@ -106,7 +106,6 @@
                 left: 0;
                 right: 0;
                 background-color: rgba(99, 14, 99, 0.95);
-
                 padding: 1rem;
             }
 
@@ -351,9 +350,6 @@
         </div>
     </section>
 
-
-    
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -378,22 +374,22 @@
     </footer>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const navList = document.querySelector('.nav-list');
 
             mobileMenuToggle.addEventListener('click', function() {
-                mobileMenuToggle.classList.toggle('active');
                 navList.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
             });
 
             const navLinks = document.querySelectorAll(".nav-list a");
 
             navLinks.forEach(n => n.addEventListener("click", function() {
-                mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
             }));
-
+        });
     </script>
 </body>
 </html>
