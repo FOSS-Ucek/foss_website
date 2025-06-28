@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FOSS UCEK - Events</title>
+    <title>FOSS UCEK - Unlock the Power of NLP Session Report</title>
     <style>
         :root {
             --primary-color: #440a44;
@@ -13,27 +13,23 @@
             --background-color: #1a1a1a;
             max-width: 100%;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.9;
+            line-height: 1.3;
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         header {
             background-color: rgba(99, 14, 99, 0.9);
             padding: 1rem 0;
@@ -43,27 +39,22 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo img {
             height: 50px;
             border-radius: 25px;
         }
-
         .nav-list {
             display: flex;
             list-style: none;
         }
-
         .nav-list li {
             margin-left: 20px;
         }
-
         .nav-list a {
             color: var(--text-color);
             text-decoration: none;
@@ -72,11 +63,9 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
         }
-
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -84,7 +73,6 @@
             cursor: pointer;
             padding: 0.5rem;
         }
-
         .mobile-menu-toggle span {
             display: block;
             width: 25px;
@@ -93,12 +81,10 @@
             margin: 5px 0;
             transition: 0.4s;
         }
-
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
             }
-
             .nav-list {
                 display: none;
                 position: absolute;
@@ -106,33 +92,27 @@
                 left: 0;
                 right: 0;
                 background-color: rgba(99, 14, 99, 0.95);
-
                 padding: 1rem;
             }
-
             .nav-list.active {
                 display: flex;
                 flex-direction: column;
             }
-
             .nav-list li {
                 margin: 0.5rem 0;
             }
         }
-
         .hero {
-            background-image: url('https://getwallpapers.com/wallpaper/full/3/1/f/570743.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+           position: relative;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             margin-bottom: 2rem;
+            overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -141,25 +121,42 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
-
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
         }
-
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow img.active {
+            opacity: 1;
+        }
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 25px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
         .hero p {
             font-size: 2rem;
             margin-bottom: 35px;
         }
-        
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
@@ -171,72 +168,63 @@
         .container {
             font-size: 1.8rem;
         }
-
         p {
             font-size: 1.5rem;
         }
-
         .section {
             padding: 80px 0;
         }
-
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            margin-top: 2rem;
-        }
-
-        .session-card {
+        .report-card {
             background-color: rgba(99, 14, 99, 0.1);
             border-radius: 12px;
             padding: 25px;
             text-align: left;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
         }
-
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .session-card h3 {
-            font-size: 1.6rem;
+        .report-card h2 {
+            font-size: 2rem;
             margin-bottom: 18px;
             color: #cc1bcc;
         }
-
-        .session-card p {
-            font-size: 1.3rem;
+        .report-card p {
+            font-size: 1.1rem;
             margin-bottom: 18px;
             color: #eeebee;
         }
-
-        .session-date {
-            font-size: 1.2rem;
-            color: #a19fa1;
-            margin-bottom: 1rem;
+        .report-card ul {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            color: #eeebee;
+            padding-left: 20px;
         }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
+        .report-card li {
+            margin-bottom: 8px;
         }
-
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
-
+        .event-photos {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        .event-photos img {
+            width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .event-photos img:hover {
+            transform: scale(1.05);
+        }
         .footer {
             background-color: var(--primary-color);
             color: var(--text-color);
@@ -244,62 +232,47 @@
             padding: 40px 0;
             font-size: 0.5rem;
         }
-
         .social-i {
             margin-top: 20px;
         }
-
         .social-i a {
             margin: 0 10px;
             display: inline-block;
         }
-
         .social-i img {
             width: 30px;
             height: 30px;
             transition: transform 0.3s ease;
         }
-
         .social-i img:hover {
             transform: scale(1.1);
         }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .hero p {
                 font-size: 1.1rem;
             }
-
-            .sessions-grid {
+            .event-details,
+            .event-photos {
                 grid-template-columns: 1fr;
             }
-
+            .event-photos img {
+                width: 100%;
+                height: 100%;
+            }
             .container {
                 font-size: 1.6rem;
             }
-
             p {
                 font-size: 1.3rem;
             }
-
-            .session-card h3 {
-                font-size: 1.4rem;
+            .report-card h2 {
+                font-size: 1.8rem;
             }
-
-            .session-card p {
+            .report-card p {
                 font-size: 1.1rem;
-            }
-
-            .session-date {
-                font-size: 1rem;
-            }
-
-            .cta-btn {
-                font-size: 1rem;
-                padding: 10px 20px;
             }
         }
     </style>
@@ -308,7 +281,7 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="images/foss.jpg" style="width: 100%;" alt="FOSS UCEK Logo">
+                <img src="images\foss.jpg" alt="FOSS UCEK Logo">
             </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -328,43 +301,49 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Events</h1>
-            <p>Learn and grow with FOSS UCEK</p>
+            <h1>Unlock the Power of NLP: Building Intelligent Applications with Open Source Tools</h1>
+        </div>
+        <div class="slideshow">
+            <img src="/placeholder.svg?height=600&width=1200&text=NLP+Workshop" alt="NLP Workshop photo 1" class="active">
+            <img src="/placeholder.svg?height=600&width=1200&text=Open+Source+NLP+Tools" alt="Open Source NLP Tools photo 2">
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <h3>Orientation</h3>
-                    <div class="session-date">September 26th, 2024</div>
-                    <p>A session aimed to introduce new students to the principles of Free and Open Source Software(FOSS).</p>
-                    <a href="orientation.html" class="cta-btn">Learn More</a>
-                </div>
-                <div class="session-card">
-                    <h3>Introduction to Open Source</h3>
-                    <div class="session-date">October 18th, 2024</div>
-                    <p>A session to introduce students to the fundamentals of Open Source Software(OSS) and its opportunities.</p>
-                    <a href="opensource.html" class="cta-btn">Learn More</a>
-                </div>
-                <div class="session-card">
-                    <h3>Run It Up</h3>
-                    <div class="session-date">April 11, 2024</div>
-                    <p> Embark on a thrilling adventure, solving puzzles, cracking codes, and overcoming challenges to claim the ultimate treasure! </p>
-                    <a href="runitup.html" class="cta-btn">Learn More</a>
-                </div>
-                <div class="session-card">
-                    <h3>Unlock the Power of NLP: Building Intelligent Applications with Open Source Tools</h3>
-                    <div class="session-date">May 30, 2025</div>
-                    <p>The session introduce to the fundamentals and advancements in Natural Language Processing (NLP),and leveraging open-source technologies to create intelligent and interactive applications.</p>
-                    <a href="nlpevent.html" class="cta-btn">Learn More</a>
-                </div>
-                <div class="session-card">
-                    <h3>Upcoming Session</h3>
-                    <div class="session-date">Date TBA</div>
-                    <p>Stay tuned for our next Events!</p>
-                </div>
+            <div class="report-card">
+                <div class="event-details">
+    <div>
+        <p><strong>Programme Name:</strong> Unlock the Power of NLP: Building Intelligent Applications with Open Source Tools</p>
+        <p><strong>Date of the event:</strong> May 30, 2025</p>
+      <p><strong>Speaker:</strong> Ms. Meharuniza (Research Associate at ICFOSS)</p>
+      <p><strong>Venue:</strong> Seminar Hall</p>
+      <p><strong>Time:</strong>1:00 PM to 4:00 PM </p>
+
+    </div> 
+</div>
+
+<h2>Event Overview</h2>
+<p>The event "Unlock the Power of NLP: Building Intelligent Applications with Open Source Tools" was successfully conducted on May 30th in the Seminar Hall. Designed to introduce participants to the fundamentals and advancements in Natural Language Processing (NLP), the session focused on leveraging open-source technologies to create intelligent and interactive applications.</p>
+
+<p>The session covered the following key areas:</p>
+<ul>
+    <li>A foundational introduction to NLP and its growing relevance</li>
+    <li>A survey of popular open-source NLP libraries such as NLTK, spaCy, Hugging Face Transformers, and others</li>
+    <li>Hands-on demonstrations showcasing real-world applications of NLP</li>
+    <li>Best practices for implementing NLP models in academic and industrial projects</li>
+</ul>
+
+<h2>Event Highlights</h2>
+<ul>
+    <li>The event featured interactive sessions that allowed participants to engage directly with the tools and concepts being presented.</li>
+    <li>Participants expressed high levels of satisfaction, appreciating the clarity, depth, and practical relevance of the content.</li>
+    <li>A prize distribution ceremony was held for the winners of the Treasure Hunt conducted earlier on April 4th, adding a celebratory note to the event.</li>
+    <li>The launch of the new website, accompanied by the principal's inspiring address, was another highlight that marked a significant milestone.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>The Unlock the Power of NLP event was a notable success, offering participants a rich blend of theory and practice in the field of Natural Language Processing. It not only enhanced technical knowledge but also inspired students to explore the potential of open-source tools in developing intelligent systems. The event was a rewarding learning experience and a step forward in fostering a culture of innovation and technology-driven thinking among students.</p>
             </div>
         </div>
     </section>
@@ -402,12 +381,22 @@
                 mobileMenuToggle.classList.toggle('active');
             });
 
-            const navLinks = document.querySelectorAll(".nav-list a");
+             // Slideshow functionality
+             const slides = document.querySelectorAll('.slideshow img');
+            let currentSlide = 0;
 
-            navLinks.forEach(n => n.addEventListener("click", function() {
-                navList.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }));
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+
+            setInterval(nextSlide, 5000);
         });
     </script>
 </body>
